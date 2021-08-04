@@ -6,7 +6,7 @@
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |form| %>
               <%= render "devise/shared/error_messages", resource: resource %>
 
-              <div class="row g-3 text-dark text-left shadow p-3 mb-5  mt-5 bg-white rounded">
+              <div class="row g-3 vw-100 text-dark text-left shadow p-3 mb-5 mt-5 bg-white rounded">
                 <div class="col-md-6">
                   <div class="form-group">
                     <%= form.label :email, class:"required-field" %><br>
@@ -88,12 +88,14 @@
                 <% end %>
                 <div>
                   <%= link_to_add_association 'Add Address', form, :addresses %>
-                </div>
+                </div> 
 
                 <div class="col-md-12 text-center">
                   <%= form.submit "Update",  class: "btn btn-success " %>
                 </div>
-                <hr class="bg-dark"/>
+                
+              </div>
+              <hr class="bg-dark"/>
                   <em>Unhappy? </em>
                   <div>
                     <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger col-md-2 text-right" %>
@@ -101,8 +103,6 @@
                 <div class="col-md-2 text-left">
                   <%= link_to "Back", :back %>
                 </div>
-              </div>
-
             <% end %>
 
 

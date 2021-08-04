@@ -1,7 +1,7 @@
 <section id="signup" class="min-vh-100  ">
     <div id="cover-caption">
         <div class="container text-left">
-            <div class="row text-white bg-white ">
+            <div class="row text-white bg-white shadow p-3 mb-5  mt-5 bg-white rounded ">
                 <div class="col-md-5 mx-auto text-center form p-4">
                     <h1 class="display-4 py-2 text-truncate text-dark">Login</h1>
                     <hr class="bg-dark" />
@@ -16,15 +16,13 @@
                                 <%= f.label :password %><br />
                                 <%= f.password_field :password, autocomplete: "current-password",class:"form-control" %>
                             </div>
-                            <% if devise_mapping.rememberable? %>
-                              <div class="col-md-4 mt-2">
-                                <div class="form-group text-dark">
+                          <!--   <% if devise_mapping.rememberable? %>
+                                <div class="field text-dark text-left">
                                   <%= f.check_box :remember_me %>
                                   <%= f.label :remember_me %>
                                 </div>
-                              </div>
-                            <% end %>
-                            <div class="actions">
+                            <% end %> -->
+                            <div class="actions mt-3">
                               <%= f.submit "Log in",class: "btn btn-success btn-lg" %>
                             </div>
                         <% end %>
