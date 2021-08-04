@@ -42,12 +42,12 @@
           <td><%= user.last_name %></td>
           <td>
             <% user.phones.each do |t| %>
-              <%= t.phone_number %>
+              - <%= t.phone_number %>  
             <% end %>
           </td>
           <td>
             <% user.addresses.each do |t| %>
-              <% if t.city == nil %>
+              <% if t.city == "" %>
                  N/A 
                   <% else %>
                 <%= t.city %>

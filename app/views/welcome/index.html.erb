@@ -44,10 +44,10 @@
 </div>
 <% else %>
   <div id="background"></div>
-  <div class="d-flex justify-content-center align-items-center flex-column vh-100 text-light ">
-    <h1>Welcome To The Paint Night</h1>
-      <p class="lead">Register yourself for this event and winner will get $1000 prize.</p>
-      <p> Event Details - 08/09/2021 at 835,Brush Hollow Road. Westbury, NY. @8 PM EST.</p>
+  <div class="d-flex justify-content-center align-items-center flex-column vh-100 text-dark main-cover ">
+    <h1 class="text-center">Welcome To The Paint Night Event Registration Page</h1>
+      <h5 class="text-center"> Winner will awarded with <i><strong class="text-warning">$1000</strong></i> USD prize.</h5>
+      <h5 class=" border border-dark p-3 bg-warning text-center"> Event Detail - 08/09/2021 at 835,Brush Hollow Road. Westbury, NY. @8 PM EST.</h5>
       <p class="lead">
         <%= link_to "Register", new_user_registration_path, class:"btn btn-lg btn-dark text-white" %> |
         <%= link_to "Sign In", new_user_session_path,class:"btn btn-lg btn-dark text-white"%>

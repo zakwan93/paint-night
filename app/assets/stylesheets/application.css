@@ -24,18 +24,6 @@
     z-index: 1;
 }
 
-/* only used for background overlay not needed for centering */
-/*form:before {
-    content: '';
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    background-color: rgba(255,230,0,0.3);
-    z-index: -1;
-    border-radius: 10px;
-}*/
 
 body, p, ol, ul, td {
   font-family: verdana, arial, helvetica, sans-serif;
@@ -168,8 +156,23 @@ table {
   z-index: -100;
   -webkit-transform:  translateX(-50%) translateY(-50%);
   transform:  translateX(-50%) translateY(-50%);
-  background-image: url("paint_night.jpeg");
+  background-image: url("paint-night-bg.jpg");
   background-size: cover;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .main-cover h1 {
+    font-size: 1.7rem;
+  }
+  .main-cover h5 {
+    font-size: 1rem;
+  }
+
+  .main-cover h5 .text-truncat{
+    white-space: wrap;
+  }
+}
 }
 
 

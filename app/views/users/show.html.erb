@@ -3,193 +3,254 @@
      <div class="col-md-12 mx-auto text-left form p-4 ">
        <h1 class="display-4 py-2 text-truncate text-dark text-center"><%= @user.first_name %> Profile</h1>
        <br/>
+       <div class="col-md-12 text-right mt-4">
+          <%= link_to 'Edit', edit_user_path(@user) %> |
+          <%= link_to 'Back', users_path %>
+        </div>
        <hr class="bg-dark" />
        <br/>
        <div class="row g-3 text-dark text-left ">
-          <div class="row " >
-            <div class="col-6 border border-dark p-3">
+          <div class="row" >
+            <div class="col-md-6 border border-dark p-3">
               <strong>Email:</strong>
             </div>
-            <div class="col-6 border border-dark p-3">
+            <div class="col-md-6 border border-dark p-3">
                 <%= @user.email %>
             </div>
           </div>
           <div class="row" >
-            <div class="col-6 border border-dark  p-3">
+            <div class="col-md-6 border border-dark  p-3">
                <strong>First Name:</strong>
             </div>
-            <div class="col-6 border border-dark p-3">
+            <div class="col-md-6 border border-dark p-3">
                 <%= @user.first_name %>
             </div>
           </div>
           <div class="row" >
-            <div class="col-6 border border-dark  p-3">
+            <div class="col-md-6 border border-dark  p-3">
                <strong>Middle Name:</strong>
             </div>
-            <div class="col-6 border border-dark p-3">
+            <div class="col-md-6 border border-dark p-3">
+                <% if @user.middle_name == "" %>
+                  N/A
+                <%else%>
                 <%= @user.middle_name %>
+                <% end %>
             </div>
           </div>
           <div class="row" >
-            <div class="col-6 border border-dark  p-3">
+            <div class="col-md-6 border border-dark  p-3">
                <strong>Last Name</strong>
             </div>
-            <div class="col-6 border border-dark p-3">
+            <div class="col-md-6 border border-dark p-3">
                 <%= @user.last_name %>
             </div>
           </div>
            <div class="row" >
-            <div class="col-3 border border-dark  p-3">
+            <div class="col-md-3 border border-dark  p-3">
                <strong>Date Of Birth:</strong>
             </div>
-            <div class="col-3 border border-dark p-3">
+            <div class="col-md-3 border border-dark p-3">
                 <%= @user.dob %>
             </div>
 
-            <div class="col-3 border border-dark  p-3">
+            <div class="col-md-3 border border-dark  p-3">
                <strong>Age:</strong>
             </div>
-            <div class="col-3 border border-dark p-3">
+            <div class="col-md-3 border border-dark p-3">
+                <% if @user.age == "" %>
+                  N/A
+                <%else%>
                 <%= @user.age %>
+                <% end %>
             </div>
           </div>
           <div class="row" >
-            <div class="col-3 border border-dark  p-3">
+            <div class="col-md-3 border border-dark  p-3">
                <strong>Gender:</strong>
             </div>
-            <div class="col-3 border border-dark p-3">
+            <div class="col-md-3 border border-dark p-3">
                 <%= @user.gender %>
             </div>
 
-            <div class="col-3 border border-dark  p-3">
+            <div class="col-md-3 border border-dark  p-3">
                <strong>Ethinicity:</strong>
             </div>
-            <div class="col-3 border border-dark p-3">
+            <div class="col-md-3 border border-dark p-3">
+                <% if @user.ethinicity == "" %>
+                  N/A
+                <%else%>
                 <%= @user.ethinicity %>
+                <% end %>
             </div>
           </div>
           <div class="row" >
-            <div class="col-3 border border-dark  p-3">
+            <div class="col-md-3 border border-dark  p-3">
                <strong>Language:</strong>
             </div>
-            <div class="col-3 border border-dark p-3">
+            <div class="col-md-3 border border-dark p-3">
+                <% if @user.language == "" %>
+                  N/A
+                <%else%>
                 <%= @user.language %>
+                <% end %>
             </div>
 
-            <div class="col-3 border border-dark  p-3">
+            <div class="col-md-3 border border-dark  p-3">
                <strong>Role:</strong>
             </div>
-            <div class="col-3 border border-dark p-3">
+            <div class="col-md-3 border border-dark p-3">
                 <%= @user.role.name %>
             </div>
           </div>
           <div class="row" >
-            <div class="col-12   p-3">
+            <div class="col-md-12   p-3">
                <strong>Phone Numbers</strong>
             </div>
           </div>
           <% @user.phones.each do |p| %>
           <div class="row" >
-            <div class="col-3 border border-dark  p-3">
+            <div class="col-md-3 border border-dark  p-3">
                <strong>Phone Type:</strong>
             </div>
-            <div class="col-3 border border-dark p-3">
+            <div class="col-md-3 border border-dark p-3">
                 <%= p.phone_type %>
+                <% if p.phone_type == "" %>
+                  N/A
+                <%else%>
+                <%= p.phone_type %>
+                <% end %>
             </div>
 
-            <div class="col-3 border border-dark  p-3">
+            <div class="col-md-3 border border-dark  p-3">
                <strong>Phone Number</strong>
             </div>
-            <div class="col-3 border border-dark p-3">
+            <div class="col-md-3 border border-dark p-3">
+               <% if p.phone_number == "" %>
+                  N/A
+                <%else%>
                 <%= p.phone_number %>
+                <% end %>
             </div>
           </div>
           <% end %>
           <div class="row" >
-            <div class="col-12   p-3">
+            <div class="col-md-12   p-3">
                <strong>Addresses</strong>
             </div>
           </div>
           <% @user.addresses.each do |t| %>
           <div class="row" >
-            <div class="col-6 border border-dark  p-3">
+            <div class="col-md-6 border border-dark  p-3">
                <strong>Address Type:</strong>
             </div>
-            <div class="col-6 border border-dark  p-3">
-               <%= t.address_type %>
+            <div class="col-md-6 border border-dark  p-3">
+                <% if t.address_type == "" %>
+                  N/A
+                <%else%>
+                <%= t.county %>
+                <% end %>
             </div>
           </div>
           <div class="row" >
-            <div class="col-3 border border-dark  p-3">
+            <div class="col-md-3 border border-dark  p-3">
                <strong>Addres Line 1:</strong>
             </div>
-            <div class="col-3 border border-dark p-3">
+            <div class="col-md-3 border border-dark p-3">
+                 <% if t.address_line_1 == "" %>
+                  N/A
+                <%else%>
                 <%= t.address_line_1 %>
+                <% end %>
             </div>
 
-            <div class="col-3 border border-dark  p-3">
+            <div class="col-md-3 border border-dark  p-3">
                <strong>Address Line 2:</strong>
             </div>
-            <div class="col-3 border border-dark p-3">
+            <div class="col-md-3 border border-dark p-3">
+                 <% if t.address_line_2 == "" %>
+                  N/A
+                <%else%>
                 <%= t.address_line_2 %>
+                <% end %>
             </div>
           </div>
           <div class="row" >
-            <div class="col-3 border border-dark  p-3">
+            <div class="col-md-3 border border-dark  p-3">
                <strong>City:</strong>
             </div>
-            <div class="col-3 border border-dark p-3">
+            <div class="col-md-3 border border-dark p-3">
+                 <% if t.city == "" %>
+                  N/A
+                <%else%>
                 <%= t.city %>
+                <% end %>
             </div>
 
-            <div class="col-3 border border-dark  p-3">
+            <div class="col-md-3 border border-dark  p-3">
                <strong>State:</strong>
             </div>
-            <div class="col-3 border border-dark p-3">
+            <div class="col-md-3 border border-dark p-3">
+                 <% if t.state == "" %>
+                  N/A
+                <%else%>
                 <%= t.state %>
+                <% end %>
             </div>
           </div>
           <div class="row" >
-            <div class="col-3 border border-dark  p-3">
+            <div class="col-md-3 border border-dark  p-3">
                <strong>Zip:</strong>
             </div>
-            <div class="col-3 border border-dark p-3">
+            <div class="col-md-3 border border-dark p-3">
+                 <% if t.zip == "" %>
+                  N/A
+                <%else%>
                 <%= t.zip %>
+                <% end %>
             </div>
 
-            <div class="col-3 border border-dark  p-3">
+            <div class="col-md-3 border border-dark  p-3">
                <strong>County:</strong>
             </div>
-            <div class="col-3 border border-dark p-3">
+            <div class="col-md-3 border border-dark p-3">
+                <% if t.county == "" %>
+                  N/A
+                <%else%>
                 <%= t.county %>
+                <% end %>
             </div>
           </div>
           <div class="row" >
-            <div class="col-6 border border-dark  p-3">
+            <div class="col-md-6 border border-dark  p-3">
                 <strong>Country:</strong>
             </div>
-            <div class="col-6 border border-dark  p-3">
+            <div class="col-md-6 border border-dark  p-3">
+                 <% if t.country == "" %>
+                  N/A
+                <%else%>
                 <%= t.country %>
+                <% end %>
             </div>
           </div>
           <% end %>
           <div class="row" >
-            <div class="col-12   p-3">
+            <div class="col-md-12   p-3">
                <strong>User Last Activity On Website</strong>
             </div>
           </div>
           <div class="row" >
-            <div class="col-3 border border-dark  p-3">
+            <div class="col-md-3 border border-dark  p-3">
                <strong>Last Logged In On:</strong>
             </div>
-            <div class="col-3 border border-dark p-3">
+            <div class="col-md-3 border border-dark p-3">
                 <%= @last_login %>
             </div>
 
-            <div class="col-3 border border-dark  p-3">
+            <div class="col-md-3 border border-dark  p-3">
                <strong>No. Of Times Logged In:</strong>
             </div>
-            <div class="col-3 border border-dark p-3">
+            <div class="col-md-3 border border-dark p-3">
                 <%= @user.sign_in_count %>
             </div>
           </div>
