@@ -1,4 +1,4 @@
-<section id="signup" class="min-vh-100  ">
+<section id="signup" class="min-vh-100 bg-light ">
     <div id="cover-caption">
         <div class="container text-left">
             <div class="row text-white bg-white shadow p-3 mb-5  mt-5 bg-white rounded ">
@@ -26,7 +26,10 @@
                               <%= f.submit "Log in",class: "btn btn-success btn-lg" %>
                             </div>
                         <% end %>
-                        <%= link_to "Register", new_user_registration_path %> 
+                        <div class="col-md-12 text-center text-dark">
+                            <%= link_to "Register", new_user_registration_path %> | 
+                            <%= link_to "Home", root_path %>
+                        </div>
                     </div>
                 </div>
             </div>

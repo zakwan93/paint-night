@@ -12,10 +12,10 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
+
 import 'bootstrap/dist/js/bootstrap'
 import 'bootstrap/dist/css/bootstrap'
 require("stylesheets/application.scss")
-require("jquery")
 require("@nathanvda/cocoon")
 require('../src/index');
 import "@fortawesome/fontawesome-free/css/all"

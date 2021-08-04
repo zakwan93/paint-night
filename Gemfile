@@ -61,3 +61,4 @@ gem "cocoon"
 gem "cancancan", "~> 3.3"
 gem 'ransack', '~> 2.4', '>= 2.4.2'
 gem 'set_as_primary'
+gem 'jquery-rails'
