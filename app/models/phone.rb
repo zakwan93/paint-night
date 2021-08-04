@@ -1,6 +1,6 @@
 class Phone < ApplicationRecord
-  # include SetAsPrimary
+  include SetAsPrimary
 
   belongs_to :user
-  # set_as_primary owner_key: :user
+  set_as_primary :primary, owner_key: :user
 end

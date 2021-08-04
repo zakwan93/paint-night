@@ -110,11 +110,10 @@
           </div>
           <% @user.phones.each do |p| %>
           <div class="row" >
-            <div class="col-md-3 border border-dark  p-3">
+            <div class="col-md-2 border border-dark  p-3">
                <strong>Phone Type:</strong>
             </div>
-            <div class="col-md-3 border border-dark p-3">
-                <%= p.phone_type %>
+            <div class="col-md-2 border border-dark p-3">
                 <% if p.phone_type == "" %>
                   N/A
                 <%else%>
@@ -122,10 +121,21 @@
                 <% end %>
             </div>
 
-            <div class="col-md-3 border border-dark  p-3">
+            <div class="col-md-2 border border-dark  p-3">
+               <strong>Primary:</strong>
+            </div>
+            <div class="col-md-2 border border-dark p-3">
+                <% if p.primary == true %>
+                   Yes
+                <%else%>
+                    No
+                <% end %>
+            </div>
+
+            <div class="col-md-2 border border-dark  p-3">
                <strong>Phone Number</strong>
             </div>
-            <div class="col-md-3 border border-dark p-3">
+            <div class="col-md-2 border border-dark p-3">
                <% if p.phone_number == "" %>
                   N/A
                 <%else%>
