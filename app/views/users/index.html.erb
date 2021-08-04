@@ -1,0 +1,78 @@
+<div class="container">
+  <h1 class="text-center p-5">Registered User</h1>
+  <hr class="bg-dark" />
+  <br/>
+  <%= search_form_for @q do |f| %>
+  <div class="input-group">
+    <div class="col-md-10">
+      <%= f.search_field :first_name_or_last_name_cont, :placeholder => 'Search by First or Last name', class: "form-control border-end-0 border rounded-pill" %>
+    </div>
+    <div class="col-md-1">
+      <span class="input-group-append mr-2">
+        <button class="btn btn-dark btn-md mr-2" type="submit">
+          <span aria-hidden="true" class="fa fa-search"></span>
+        </button>
+      </span>
+    </div>
+    <div class="col-md-1">
+      <%= link_to 'Refresh', users_path, class:"btn btn-dark text-light" %>
+    </div>
+  </div>
+  <% end %>
+  <br/>
+   <hr class="bg-dark" />
+
+  <div class="container table-responsive py-5"> 
+  <table class="table table-bordered table-hover">
+    <thead class="thead-dark bg-dark text-light">
+      <tr>
+        <th>Email</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Phone</th>
+        <th>City</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.email %></td>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td>
+            <% user.phones.each do |t| %>
+              <%= t.phone_number %>
+            <% end %>
+          </td>
+          <td>
+            <% user.addresses.each do |t| %>
+              <% if t.city == nil %>
+                 N/A 
+                  <% else %>
+                <%= t.city %>
+              <% end %>
+            <% end %>
+          </td>
+           <td>
+              <% if can? :update, user %>
+                <%= link_to 'Edit', edit_user_path(user) %>
+              <% end %>
+            </td>
+            <td>
+              <% if can? :destroy, user %>
+                <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
+              <% end %>
+            </td>
+            <td><%= link_to 'Show', user %></td>
+        </tr>
+
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+  <br/>
+  <% if can? :create, User %>
+    <%= link_to 'New User', new_user_path %>
+  <% end %>
+</div>
+

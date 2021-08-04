@@ -1,0 +1,115 @@
+<section id="cover" class="min-vh-100  text-dark">
+  <div class="row text-dark bg-white p-5 ">
+     <div class="col-md-12 mx-auto text-left form p-4">
+        <h1 class="display-4 py-2 text-truncate text-dark text-center">Edit <%= resource_name.to_s.humanize %></h1>
+          <hr class="bg-dark" />
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |form| %>
+              <%= render "devise/shared/error_messages", resource: resource %>
+
+              <div class="row g-3 text-dark text-left shadow p-3 mb-5  mt-5 bg-white rounded">
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= form.label :email, class:"required-field" %><br>
+                    <%= form.text_field :email, class:"form-control", required: true %>
+                  </div>
+                </div>
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= form.label :current_password ,class:"required-field"%> <i>(we need your current password to confirm your changes)</i><br />
+                    <%= form.password_field :current_password, autocomplete: "current-password",class:"form-control", required: true %>
+                  </div>
+                </div>
+
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <%= form.label :title %>
+                    <%= form.select :title, ["Mr", "Mrs", "Miss", "Jr", "Sr"], {:prompt => 'Select Title'}, {class: "form-control"}%>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <%= form.label "First Name", class:"required-field" %>
+                    <%= form.text_field :first_name,class:"form-control", required: true %>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <%= form.label "Middle Name"  %>
+                    <%= form.text_field :middle_name,class:"form-control" %>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <%= form.label "Last Name", class:"required-field" %>
+                    <%= form.text_field :last_name,class:"form-control", required: true %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= form.label "Date of Birth", class:"required-field" %>
+                    <%= form.date_field :dob,class:"form-control", required: true %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= form.label :age %>
+                    <%= form.number_field :age, class:"form-control"%>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <%= form.label :gender, class:"required-field" %>
+                    <%= form.select :gender, ["Male", "Female", "I prefer not to  say"], {:prompt => 'Select Your Gender'}, class: "form-control", required: true%>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <%= form.label :ethinicity %>
+                    <%= form.select :ethinicity, ["American Indian or Alaska Native", "Asian", "Black or African American", "Native Hawaiian or Other Pacific Islander", "White", "Others"], {:prompt => 'Select Your Ethinicity'}, {class: "form-control"}%>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <%= form.label :language %>
+                    <%= form.select :language, ["English", "Hindi", "Spanish", "Chineese", "French", "others"], {:prompt => 'Select Your Language'}, {class: "form-control"}%>
+                  </div>
+                </div>
+
+                <%= form.fields_for :phones do |phone_form| %>
+                  <%= render 'phone_fields', f: phone_form %>
+                <% end %>
+                <div>
+                  <%= link_to_add_association 'Add Phone', form, :phones %>
+                </div>
+
+                <%= form.fields_for :addresses do |address_form| %>
+                  <%= render 'address_fields', f: address_form %>
+                <% end %>
+                <div>
+                  <%= link_to_add_association 'Add Address', form, :addresses %>
+                </div>
+
+                <div class="col-md-12 text-center">
+                  <%= form.submit "Update",  class: "btn btn-success " %>
+                </div>
+                <hr class="bg-dark"/>
+                  <em>Unhappy? </em>
+                  <div>
+                    <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger col-md-2 text-right" %>
+                  </div>
+                <div class="col-md-2 text-left">
+                  <%= link_to "Back", :back %>
+                </div>
+              </div>
+
+            <% end %>
+
+
+    </div>
+  </div>
+</section>
+              
+              
+
+

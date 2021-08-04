@@ -1,0 +1,80 @@
+<section id="cover" class=" container vh-100 text-dark">
+  <div class="row text-dark bg-white p-5 shadow p-3 mb-5  mt-5 bg-white rounded ">
+     <div class="col-md-12 mx-auto text-left form p-4 ">
+       <h1 class="display-4 py-2 text-truncate text-dark text-center"><%= @user.first_name %> Profile</h1>
+       <br/>
+       <hr class="bg-dark" />
+       <div class="row g-3 text-dark text-left ">
+          <div class="row" >
+              <div class="col-6">
+                  <strong>Email:</strong>
+                  <%= @user.email %>
+              </div>
+              <div class="col-6">
+                <strong>Title:</strong>
+                <%= @user.title %>
+              </div>
+              <div class="col-6">
+                 <strong>First Name:</strong>
+                 <%= @user.first_name %>
+              </div>
+              <div class="col-6">
+                <strong>Middle Name</strong>
+                <%= @user.middle_name %>
+              </div>
+              <div class="col-6">
+                 <strong>Last Name</strong>
+                 <%= @user.last_name %>
+              </div>
+               <div class="col-6">
+                 <strong>Date Of Birth:</strong>
+                 <%= @user.dob %>
+              </div>
+               <div class="col-6">
+                 <strong>Age:</strong>
+                 <%= @user.age %>
+              </div>
+               <div class="col-6">
+                 <strong>Gender:</strong>
+                 <%= @user.gender %>
+              </div>
+               <div class="col-6">
+                 <strong>Ethinicity:</strong>
+                 <%= @user.ethinicity %>
+              </div>
+              <div class="col-6">
+                 <strong>Language:</strong>
+                 <%= @user.language %>
+              </div>
+              <div class="col-6">
+                <strong>Role:</strong>
+                <%= @user.role_id %>
+              </div>
+              <div class="col-6">
+                <strong>Joined on:</strong>
+                <%= @joined_on %>
+              </div>
+              <div class="col-6">
+                  <strong>Last logged in on:</strong>
+                  <%= @last_login %>
+              </div>
+              <div class="col-6">
+                <strong>No. times logged in:</strong>
+                <%= @user.sign_in_count %>
+              </div>
+          </div>
+          <div class="col-md-2 text-left">
+            <%= link_to 'Edit', edit_user_path(@user) %> |
+            <%= link_to 'Back', users_path %>
+          </div>
+       </div>
+     </div>
+  </div>
+</section>
+
+
+
+
+
+
+

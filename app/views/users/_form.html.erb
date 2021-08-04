@@ -1,0 +1,110 @@
+        <%= form_with(model: user) do |form| %>
+          <% if user.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+              <ul>
+                <% user.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+        <div class="row g-3 text-dark text-left shadow p-3 mb-5  mt-5 bg-white rounded">
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :email, class:"required-field" %><br>
+              <%= form.text_field :email, class:"form-control", required: true %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :password, class:"required-field" %><br>
+            <%= form.password_field :password,class:"form-control", required: true %>
+            </div>
+          </div>
+         <!--  <div class="row"> -->
+          <div class="col-md-2">
+            <div class="form-group">
+              <%= form.label :title %>
+              <%= form.select :title, ["Mr", "Mrs", "Miss", "Jr", "Sr"], {:prompt => 'Select Title'}, {class: "form-control"}%>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= form.label "First Name", class:"required-field" %>
+              <%= form.text_field :first_name,class:"form-control", required: true %>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <%= form.label "Middle Name" %>
+              <%= form.text_field :middle_name,class:"form-control" %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= form.label "Last Name", class:"required-field" %>
+              <%= form.text_field :last_name,class:"form-control", required: true %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label "Date of Birth", class:"required-field" %>
+              <%= form.date_field :dob,class:"form-control", required: true %>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :age %>
+              <%= form.number_field :age, class:"form-control"%>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= form.label :gender ,class:"required-field"%>
+              <%= form.select :gender, ["Male", "Female", "I prefer not to  say"], {:prompt => 'Select Your Gender'}, class: "form-control", required: true %>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= form.label :ethinicity %>
+              <%= form.select :ethinicity, ["American Indian or Alaska Native", "Asian", "Black or African American", "Native Hawaiian or Other Pacific Islander", "White", "Others"], {:prompt => 'Select Your Ethinicity'}, {class: "form-control"}%>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <%= form.label :language %>
+              <%= form.select :language, ["English", "Hindi", "Spanish", "Chineese", "French", "others"], {:prompt => 'Select Your Language'}, {class: "form-control"}%>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <div class="form-group">
+              <%= form.label :role %>
+              <%= collection_select :user, :role_id, Role.all, :id, :name, { prompt: true },{class: "form-control"}%>
+            </div>
+          </div>
+          <div class="col-md-12">
+            <%= form.fields_for :phones do |phone_form| %>
+              <%= render 'phone_fields', f: phone_form %>
+            <% end %> 
+            <div>
+              <%= link_to_add_association 'Add Phone Number', form, :phones, class: "btn btn-secondary w-100" %>
+            </div>
+          </div>
+           <div class="col-md-12">
+            <%= form.fields_for :addresses do |address_form| %>
+              <%= render 'address_fields', f: address_form %>
+            <% end %>
+            <div>
+              <%= link_to_add_association 'Add New Address', form, :addresses,class: "btn btn-secondary  w-100" %>
+            </div>
+          </div>
+
+          <div class="col-md-12 text-center">
+            <%= form.submit "Submit", class: "btn btn-success p-3" %>
+          </div>
+          <!-- </div> -->
+        </div>
+        <% end %>
