@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-    
-     before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :set_global_varriables, if: :user_signed_in?
   protected
 
   def configure_permitted_parameters
@@ -35,7 +35,11 @@ class ApplicationController < ActionController::Base
   end
 
   rescue_from CanCan::AccessDenied do
-    flash[:error] = 'Access denied!'
+    flash[:error] = 'Only Admin have Access To This Page'
     redirect_to root_url
+  end
+
+  def set_global_varriables
+    @ransack_users = User.ransack(params[:users_search], search_key: :users_search)
   end
 end

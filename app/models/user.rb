@@ -24,4 +24,12 @@ class User < ApplicationRecord
                                  allow_destroy: true
 
   validates_presence_of :first_name,:last_name,:dob,:gender
+
+  # def self.search(search)
+  #   if search
+  #     find(:all, :condition => ['name LIKE ?', "%#{search}%"])
+  #   else
+  #     find(:all)
+  #   end
+  # end
 end

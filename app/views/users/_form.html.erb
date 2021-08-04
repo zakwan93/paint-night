@@ -11,7 +11,7 @@
             </div>
           <% end %>
 
-        <div class="row g-3 vw-100 text-dark text-left shadow p-3 mb-5  mt-5 bg-white rounded">
+        <div class="row g-3 text-dark text-left shadow p-3 mb-5  mt-5 bg-white rounded">
           <div class="col-md-6">
             <div class="form-group">
               <%= form.label :email, class:"required-field" %><br>
@@ -90,7 +90,7 @@
               <%= render 'phone_fields', f: phone_form %>
             <% end %> 
             <div>
-              <%= link_to_add_association 'Add Phone Number', form, :phones, class: "btn btn-secondary w-100" %>
+              <%= link_to_add_association 'Add Phone Number', form, :phones, class: "btn btn-dark w-100" %>
             </div>
           </div>
            <div class="col-md-12">
@@ -98,7 +98,7 @@
               <%= render 'address_fields', f: address_form %>
             <% end %>
             <div>
-              <%= link_to_add_association 'Add New Address', form, :addresses,class: "btn btn-secondary  w-100" %>
+              <%= link_to_add_association 'Add New Address', form, :addresses,class: "btn btn-dark  w-100" %>
             </div>
           </div>
 

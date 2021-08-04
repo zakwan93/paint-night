@@ -6,7 +6,7 @@
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |form| %>
               <%= render "devise/shared/error_messages", resource: resource %>
 
-              <div class="row g-3 vw-100 text-dark text-left shadow p-3 mb-5 mt-5 bg-white rounded">
+              <div class="row g-3 text-dark text-left shadow p-3 mb-5 mt-5 bg-white rounded">
                 <div class="col-md-6">
                   <div class="form-group">
                     <%= form.label :email, class:"required-field" %><br>

@@ -1,69 +1,201 @@
-<section id="cover" class=" container vh-100 text-dark">
+<section id="cover" class=" container min-vh-100 text-dark">
   <div class="row text-dark bg-white p-5 shadow p-3 mb-5  mt-5 bg-white rounded ">
      <div class="col-md-12 mx-auto text-left form p-4 ">
        <h1 class="display-4 py-2 text-truncate text-dark text-center"><%= @user.first_name %> Profile</h1>
        <br/>
        <hr class="bg-dark" />
+       <br/>
        <div class="row g-3 text-dark text-left ">
-          <div class="row" >
-              <div class="col-6">
-                  <strong>Email:</strong>
-                  <%= @user.email %>
-              </div>
-              <div class="col-6">
-                <strong>Title:</strong>
-                <%= @user.title %>
-              </div>
-              <div class="col-6">
-                 <strong>First Name:</strong>
-                 <%= @user.first_name %>
-              </div>
-              <div class="col-6">
-                <strong>Middle Name</strong>
-                <%= @user.middle_name %>
-              </div>
-              <div class="col-6">
-                 <strong>Last Name</strong>
-                 <%= @user.last_name %>
-              </div>
-               <div class="col-6">
-                 <strong>Date Of Birth:</strong>
-                 <%= @user.dob %>
-              </div>
-               <div class="col-6">
-                 <strong>Age:</strong>
-                 <%= @user.age %>
-              </div>
-               <div class="col-6">
-                 <strong>Gender:</strong>
-                 <%= @user.gender %>
-              </div>
-               <div class="col-6">
-                 <strong>Ethinicity:</strong>
-                 <%= @user.ethinicity %>
-              </div>
-              <div class="col-6">
-                 <strong>Language:</strong>
-                 <%= @user.language %>
-              </div>
-              <div class="col-6">
-                <strong>Role:</strong>
-                <%= @user.role_id %>
-              </div>
-              <div class="col-6">
-                <strong>Joined on:</strong>
-                <%= @joined_on %>
-              </div>
-              <div class="col-6">
-                  <strong>Last logged in on:</strong>
-                  <%= @last_login %>
-              </div>
-              <div class="col-6">
-                <strong>No. times logged in:</strong>
-                <%= @user.sign_in_count %>
-              </div>
+          <div class="row " >
+            <div class="col-6 border border-dark p-3">
+              <strong>Email:</strong>
+            </div>
+            <div class="col-6 border border-dark p-3">
+                <%= @user.email %>
+            </div>
           </div>
-          <div class="col-md-2 text-left">
+          <div class="row" >
+            <div class="col-6 border border-dark  p-3">
+               <strong>First Name:</strong>
+            </div>
+            <div class="col-6 border border-dark p-3">
+                <%= @user.first_name %>
+            </div>
+          </div>
+          <div class="row" >
+            <div class="col-6 border border-dark  p-3">
+               <strong>Middle Name:</strong>
+            </div>
+            <div class="col-6 border border-dark p-3">
+                <%= @user.middle_name %>
+            </div>
+          </div>
+          <div class="row" >
+            <div class="col-6 border border-dark  p-3">
+               <strong>Last Name</strong>
+            </div>
+            <div class="col-6 border border-dark p-3">
+                <%= @user.last_name %>
+            </div>
+          </div>
+           <div class="row" >
+            <div class="col-3 border border-dark  p-3">
+               <strong>Date Of Birth:</strong>
+            </div>
+            <div class="col-3 border border-dark p-3">
+                <%= @user.dob %>
+            </div>
+
+            <div class="col-3 border border-dark  p-3">
+               <strong>Age:</strong>
+            </div>
+            <div class="col-3 border border-dark p-3">
+                <%= @user.age %>
+            </div>
+          </div>
+          <div class="row" >
+            <div class="col-3 border border-dark  p-3">
+               <strong>Gender:</strong>
+            </div>
+            <div class="col-3 border border-dark p-3">
+                <%= @user.gender %>
+            </div>
+
+            <div class="col-3 border border-dark  p-3">
+               <strong>Ethinicity:</strong>
+            </div>
+            <div class="col-3 border border-dark p-3">
+                <%= @user.ethinicity %>
+            </div>
+          </div>
+          <div class="row" >
+            <div class="col-3 border border-dark  p-3">
+               <strong>Language:</strong>
+            </div>
+            <div class="col-3 border border-dark p-3">
+                <%= @user.language %>
+            </div>
+
+            <div class="col-3 border border-dark  p-3">
+               <strong>Role:</strong>
+            </div>
+            <div class="col-3 border border-dark p-3">
+                <%= @user.role.name %>
+            </div>
+          </div>
+          <div class="row" >
+            <div class="col-12   p-3">
+               <strong>Phone Numbers</strong>
+            </div>
+          </div>
+          <% @user.phones.each do |p| %>
+          <div class="row" >
+            <div class="col-3 border border-dark  p-3">
+               <strong>Phone Type:</strong>
+            </div>
+            <div class="col-3 border border-dark p-3">
+                <%= p.phone_type %>
+            </div>
+
+            <div class="col-3 border border-dark  p-3">
+               <strong>Phone_number</strong>
+            </div>
+            <div class="col-3 border border-dark p-3">
+                <%= p.phone_number %>
+            </div>
+          </div>
+          <% end %>
+          <div class="row" >
+            <div class="col-12   p-3">
+               <strong>Addresses</strong>
+            </div>
+          </div>
+          <% @user.addresses.each do |t| %>
+          <div class="row" >
+            <div class="col-6 border border-dark  p-3">
+               <strong>Address Type:</strong>
+            </div>
+            <div class="col-6 border border-dark  p-3">
+               <%= t.address_type %>
+            </div>
+          </div>
+          <div class="row" >
+            <div class="col-3 border border-dark  p-3">
+               <strong>Addres Line 1:</strong>
+            </div>
+            <div class="col-3 border border-dark p-3">
+                <%= t.address_line_1 %>
+            </div>
+
+            <div class="col-3 border border-dark  p-3">
+               <strong>Address Line 2:</strong>
+            </div>
+            <div class="col-3 border border-dark p-3">
+                <%= t.address_line_2 %>
+            </div>
+          </div>
+          <div class="row" >
+            <div class="col-3 border border-dark  p-3">
+               <strong>City:</strong>
+            </div>
+            <div class="col-3 border border-dark p-3">
+                <%= t.city %>
+            </div>
+
+            <div class="col-3 border border-dark  p-3">
+               <strong>State:</strong>
+            </div>
+            <div class="col-3 border border-dark p-3">
+                <%= t.state %>
+            </div>
+          </div>
+          <div class="row" >
+            <div class="col-3 border border-dark  p-3">
+               <strong>Zip:</strong>
+            </div>
+            <div class="col-3 border border-dark p-3">
+                <%= t.zip %>
+            </div>
+
+            <div class="col-3 border border-dark  p-3">
+               <strong>County:</strong>
+            </div>
+            <div class="col-3 border border-dark p-3">
+                <%= t.county %>
+            </div>
+          </div>
+          <div class="row" >
+            <div class="col-6 border border-dark  p-3">
+                <strong>Country:</strong>
+            </div>
+            <div class="col-6 border border-dark  p-3">
+                <%= t.country %>
+            </div>
+          </div>
+          <% end %>
+          <div class="row" >
+            <div class="col-12   p-3">
+               <strong>User Last Activity On Website</strong>
+            </div>
+          </div>
+          <div class="row" >
+            <div class="col-3 border border-dark  p-3">
+               <strong>Last Logged In On:</strong>
+            </div>
+            <div class="col-3 border border-dark p-3">
+                <%= @last_login %>
+            </div>
+
+            <div class="col-3 border border-dark  p-3">
+               <strong>No. Of Times Logged In:</strong>
+            </div>
+            <div class="col-3 border border-dark p-3">
+                <%= @user.sign_in_count %>
+            </div>
+          </div>
+           
+          </div>
+          <div class="col-md-2 text-left mt-4">
             <%= link_to 'Edit', edit_user_path(@user) %> |
             <%= link_to 'Back', users_path %>
           </div>

@@ -3,6 +3,26 @@
     <h1 class="text-center p-5 text-truncate">Registerd Users For The Event</h1>
     <br/>
     <hr class="bg-dark" />
+
+  <%= search_form_for @ransack_users, as: :users_search, url: root_path, method: :get do |f| %>
+      <div class="input-group">
+        <div class="col-md-10">
+          <%= f.search_field :first_name_or_last_name_cont, :placeholder => 'Search by First or Last name', class: "form-control border-end-0 border rounded-pill" %>
+        </div>
+        <div class="col-md-1">
+          <span class="input-group-append mr-2">
+            <button class="btn btn-dark btn-md mr-2" type="submit">
+              <span aria-hidden="true" class="fa fa-search"></span>
+            </button>
+          </span>
+        </div>
+        <div class="col-md-1">
+      <%= link_to 'Refresh', root_path, class:"btn btn-dark text-light" %>
+    </div>
+  </div>
+  <% end %>
+
+  <hr class="bg-dark" />
     <div class="container table-responsive py-5"> 
       <table class="table table-bordered table-hover">
         <thead class="thead-dark bg-dark text-light">
