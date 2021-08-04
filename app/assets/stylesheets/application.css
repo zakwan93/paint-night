@@ -1,4 +1,5 @@
 @import 'bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
 
 #cover {
     height: 100%;
@@ -7,6 +8,10 @@
     display: flex;
     /*align-items: center;*/
     position: relative;
+}
+
+.main-cover{
+  font-family: 'Amatic SC', cursive;
 }
 
 #signup {
@@ -156,7 +161,7 @@ table {
   z-index: -100;
   -webkit-transform:  translateX(-50%) translateY(-50%);
   transform:  translateX(-50%) translateY(-50%);
-  background-image: url("paint-night-bg.jpg");
+  background-image: url("paint-night-main.jpeg");
   background-size: cover;
 }
 
