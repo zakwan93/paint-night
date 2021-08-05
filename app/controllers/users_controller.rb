@@ -31,8 +31,12 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
+    # puts params
     phone_index = params[:user][:primary_phone]
-    params[:user][:phones_attributes][phone_index][:primary] = true
+    # puts phone_index
+    # puts params[:user][:phones_attributes]
+    # params[:user][:phones_attributes][phone_index][:primary] = true 
+    # if params[:user][:phones_attributes][phone_index] 
     @user = User.new(user_params)
 
     if @user.save
@@ -45,7 +49,8 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   def update
       phone_index = params[:user][:primary_phone]
-      params[:user][:phones_attributes][phone_index][:primary] = true
+      # params[:user][:phones_attributes][phone_index][:primary] = true 
+      # if params[:user][:phones_attributes][phone_index] 
     if user_params[:password].blank?
       user_params.delete(:password)
       user_params.delete(:password_confirmation)

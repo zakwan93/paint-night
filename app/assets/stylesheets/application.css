@@ -144,7 +144,7 @@ table {
   transition: opacity 1500ms;
 }
 
-.required-field::before {
+.required-field::after {
   content: "*";
   color: red;
 }

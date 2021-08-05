@@ -6,7 +6,8 @@ class User < ApplicationRecord
   belongs_to :role, optional: true
   has_many :phones, dependent: :destroy
   accepts_nested_attributes_for :phones,
-                                 allow_destroy: true 
+                                 allow_destroy: true
+                                #  reject_if: lambda { |attrs| attrs['phone_number'].blank?  } 
 
   before_save :assign_role
   def assign_role

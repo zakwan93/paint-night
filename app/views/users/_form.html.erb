@@ -87,7 +87,7 @@
           </div>
           <div class="col-md-12">
             <%= form.fields_for :phones do |phone_form| %>
-              <%= render 'phone_fields', f: phone_form %>
+              <%= render 'phone_fields', f: phone_form, required: true %>
             <% end %> 
             <div>
               <%= link_to_add_association 'Add Phone Number', form, :phones, class: "btn btn-dark w-100" %>
@@ -103,7 +103,7 @@
           </div>
 
           <div class="col-md-12 text-center">
-            <%= form.submit "Submit", class: "btn btn-success p-3" %>
+            <%= form.submit "Submit", class: "btn btn-success " %>
           </div>
           <!-- </div> -->
         </div>
