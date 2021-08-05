@@ -1,7 +1,7 @@
 <section id="cover" class=" container min-vh-100 text-dark">
   <div class="row text-dark bg-white p-5 shadow p-3 mb-5  mt-5 bg-white rounded ">
      <div class="col-md-12 mx-auto text-left form p-4 ">
-       <h1 class="display-4 py-2 text-truncate text-dark text-center"><%= @user.first_name %> Profile</h1>
+       <h1 class="display-4 py-2 text-truncate text-dark text-center"><%= @user.first_name %>'s Profile</h1>
        <br/>
        <div class="col-md-12 text-right mt-4">
           <%= link_to 'Edit', edit_user_path(@user) %> |
@@ -124,13 +124,13 @@
             <div class="col-md-2 border border-dark  p-3">
                <strong>Primary:</strong>
             </div>
-            <div class="col-md-2 border border-dark p-3">
-                <% if p.primary == true %>
+            <!-- <div class="col-md-2 border border-dark p-3">
+                < if p.primary == true %>
                    Yes
-                <%else%>
+                <else%>
                     No
-                <% end %>
-            </div>
+                < end %>
+            </div> -->
 
             <div class="col-md-2 border border-dark  p-3">
                <strong>Phone Number</strong>

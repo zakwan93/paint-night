@@ -52,13 +52,13 @@
           <div class="col-md-6">
             <div class="form-group">
               <%= form.label "Date of Birth", class:"required-field" %>
-              <%= form.date_field :dob,class:"form-control", required: true %>
+              <%= form.date_field :dob, max: Date.today, min: Date.new(1950, 01, 01), class:"form-control", required: true %>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <%= form.label :age %>
-              <%= form.number_field :age, class:"form-control"%>
+              <%= form.label :age %><em>(Age must be in range of 10 to 70)</em>
+              <%= form.number_field :age, min: 10, max: 70, class:"form-control"%>
             </div>
           </div>
           <div class="col-md-4">
@@ -103,7 +103,7 @@
           </div>
 
           <div class="col-md-12 text-center">
-            <%= form.submit "Submit", class: "btn btn-success " %>
+            <%= form.submit "Submit", class: "btn btn-success" %>
           </div>
           <!-- </div> -->
         </div>
