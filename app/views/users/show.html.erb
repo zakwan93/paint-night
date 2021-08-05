@@ -23,7 +23,7 @@
                <strong>First Name:</strong>
             </div>
             <div class="col-md-6 border border-dark border-top-0 p-3">
-                <%= @user.first_name %>
+                <%= @user.first_name.capitalize %>
             </div>
           </div>
           <div class="row" >
@@ -34,7 +34,7 @@
                 <% if @user.middle_name == "" %>
                   N/A
                 <%else%>
-                <%= @user.middle_name %>
+                <%= @user.middle_name.capitalize %>
                 <% end %>
             </div>
           </div>
@@ -43,7 +43,7 @@
                <strong>Last Name</strong>
             </div>
             <div class="col-md-6 border border-dark border-top-0 p-3">
-                <%= @user.last_name %>
+                <%= @user.last_name.capitalize %>
             </div>
           </div>
            <div class="row" >
@@ -181,7 +181,7 @@
                    <% if t.address_line_1 == "" %>
                     N/A
                   <%else%>
-                  <%= t.address_line_1 %>
+                  <%= t.address_line_1.capitalize %>
                   <% end %>
               </div>
 
@@ -192,7 +192,7 @@
                    <% if t.address_line_2 == "" %>
                     N/A
                   <%else%>
-                  <%= t.address_line_2 %>
+                  <%= t.address_line_2.capitalize %>
                   <% end %>
               </div>
             </div>
@@ -204,7 +204,7 @@
                    <% if t.city == "" %>
                     N/A
                   <%else%>
-                  <%= t.city %>
+                  <%= t.city.capitalize %>
                   <% end %>
               </div>
 
@@ -215,7 +215,7 @@
                    <% if t.state == "" %>
                     N/A
                   <%else%>
-                  <%= t.state %>
+                  <%= t.state.capitalize %>
                   <% end %>
               </div>
             </div>
@@ -235,7 +235,7 @@
                  <strong>County:</strong>
               </div>
               <div class="col-md-3 border border-dark border-top-0 p-3">
-                  <% if t.county == "" %>
+                  <% if t.county.capitalize == "" %>
                     N/A
                   <%else%>
                   <%= t.county %>
@@ -247,7 +247,7 @@
                   <strong>Country:</strong>
               </div>
               <div class="col-md-6 border border-dark border-top-0 p-3">
-                   <% if t.country == "" %>
+                   <% if t.country.capitalize == "" %>
                     N/A
                   <%else%>
                   <%= t.country %>

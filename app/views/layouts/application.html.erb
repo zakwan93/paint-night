@@ -15,20 +15,20 @@
   <body >
     <% if user_signed_in? %>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark  ">
-          <a class="navbar-brand mx-3" href="<%= root_path %>">Paint Night</a>
+          <a class="navbar-brand mx-3 d-flex align-items-center" href="<%= root_path %>">Paint Night</a>
             <button aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar navbar-toggler" data-bs-target="#navbarSupportedContent" data-bs-toggle="collapse" type="button">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mx-3">
+            <ul class="navbar-nav ms-auto d-flex align-items-center">
               <span class="navbar-text">
-                Signed in as <%= current_user.email %>. Not you?
+                Signed in as <%= current_user.email %>, 
               </span>
               <li class="nav-item">
                 <%= link_to "Users", users_path,class: "nav-link text-light"%> 
               </li>
-              <li class="nav-item ">
-                <%= link_to "Edit profile", edit_user_registration_path, class: "nav-link text-light" %><
+              <li class="nav-item">
+                <%= link_to "Edit Profile", edit_user_registration_path, class: "nav-link text-light" %>
               </li>
               <li class="nav-item">
                 <%= link_to "Sign out", destroy_user_session_path, method: :delete, class: "nav-link text-light" %>

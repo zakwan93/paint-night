@@ -38,8 +38,8 @@
       <% @users.each do |user| %>
         <tr>
           <td><%= user.email %></td>
-          <td><%= user.first_name %></td>
-          <td><%= user.last_name %></td>
+          <td><%= user.first_name.capitalize %></td>
+          <td><%= user.last_name.capitalize %></td>
           <td>
             <% user.phones.each do |t| %>
               - <%= t.phone_number %>  
@@ -50,7 +50,7 @@
               <% if t.city == "" %>
                  N/A 
                   <% else %>
-                <%= t.city %>
+                <%= t.city.capitalize %>
               <% end %>
             <% end %>
           </td>
