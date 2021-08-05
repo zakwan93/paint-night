@@ -1,6 +1,7 @@
 class Phone < ApplicationRecord
-  include SetAsPrimary
+  # include SetAsPrimary
   belongs_to :user
+  # self.primary_key = 'user_id'
 
    validates :phone_number, :presence => {:message => 'is not valid'},
                      :numericality => true,

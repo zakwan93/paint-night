@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-      phone_index = params[:user][:primary_phone]
+      # phone_index = params[:user][:primary_phone]
       # params[:user][:phones_attributes][phone_index][:primary] = true 
       # if params[:user][:phones_attributes][phone_index] 
     if user_params[:password].blank?
@@ -57,6 +57,7 @@ class UsersController < ApplicationController
     end
 
     successfully_updated = if needs_password?(@user, user_params)
+                            puts params
                              @user.update(user_params)
                            else
                              @user.update_without_password(user_params)
@@ -100,7 +101,7 @@ class UsersController < ApplicationController
                                    :ethinicity, 
                                    :language, 
                                    :role_id, 
-                                   phones_attributes: [:id,:phone_type,:phone_number,:primary,:_destroy],
+                                   phones_attributes: [:id,:phone_type,:phone_number,:_destroy],
                                    addresses_attributes:[:id,:address_line_1, :address_line_2, :city, :state, :zip, :county, :country, :address_type, :_destroy])
     end
 end

@@ -1,8 +1,9 @@
-<section id="cover" class="min-vh-100  text-dark">
+<section class="min-vh-100  text-dark">
   <div class="row text-dark bg-white p-5 ">
      <div class="col-md-12 mx-auto text-left form p-4">
         <h1 class="display-4 py-2 text-truncate text-dark text-center">Edit <%= resource_name.to_s.humanize %></h1>
           <hr class="bg-dark" />
+          <div class=" container px-2 justify-content-left">
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |form| %>
               <%= render "devise/shared/error_messages", resource: resource %>
 
@@ -20,7 +21,7 @@
                     <%= form.password_field :current_password, autocomplete: "current-password",class:"form-control", required: true %>
                   </div>
                 </div>
-
+ 
                 <div class="col-md-2">
                   <div class="form-group">
                     <%= form.label :title %>
@@ -95,6 +96,7 @@
                 </div>
               </div>
                <% end %>
+            </div>
               <hr class="bg-dark"/>
                   <em>Unhappy? </em>
                   <div>
