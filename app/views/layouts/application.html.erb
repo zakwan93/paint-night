@@ -37,10 +37,7 @@
             <% end %>
           </div>
         </nav>
-      <!--   <% if @current_user&.admin? %>
-          <%= link_to "Users", users_path %> |
-          <%= link_to "Roles", roles_path %>
-        <% end %> -->
+   
 
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, id: "flash_#{name}" %>
