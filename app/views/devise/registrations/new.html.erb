@@ -10,13 +10,13 @@
               <div class="row g-3 text-dark text-left shadow p-3 mb-5  mt-5 bg-white rounded">
                 <div class="col-md-4 ">
                   <div class="form-group">
-                    <%= form.label :email, class:"required-field" %><br>
-                    <%= form.text_field :email, class:"form-control", required: true %>
+                    <%= form.label :email, class:"required-field" %>
+                    <%= form.email_field :email, class:"form-control", required: true %>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <%= form.label :password, class:"required-field"%><br>
+                    <%= form.label :password, class:"required-field"%>
                   <%= form.password_field :password,class:"form-control" , required: true%>
                   </div>
                 </div>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="col-md-2">
                   <div class="form-group">
-                    <%= form.label "Middle Name" %>
+                    <%= form.label "Middle Initial" %>
                     <%= form.text_field :middle_name,class:"form-control" %>
                   </div>
                 </div>

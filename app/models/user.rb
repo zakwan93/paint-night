@@ -5,6 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   validates :email, presence: true, format: Devise.email_regexp
   validates_presence_of :first_name,:last_name,:dob,:gender
+  validates_format_of :first_name, :last_name, :with => /\A[a-zA-Z]+(?: [a-zA-Z]+)?\z/
+  validates :first_name, :last_name, length: { minimum: 2 }
+  validates :middle_name, length: { is: 1 }, allow_blank: true
 
   belongs_to :role, optional: true
   has_many :phones, dependent: :destroy
