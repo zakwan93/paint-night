@@ -4,11 +4,30 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :email, presence: true, format: Devise.email_regexp
-  validates_presence_of :first_name,:last_name,:dob,:gender
+   validates :primary_phone,
+                      :presence => {:message => 'can not be blank'},
+                     :numericality => true, 
+                     :length => { :minimum => 10, :maximum => 13 }
+
+  validates_presence_of :first_name,
+                        :last_name,
+                        :dob,
+                        :gender,
+                        :primary_phone_type,
+                        :primary_address_line_1, 
+                        :primary_city, 
+                        :primary_state, 
+                        :primary_country, 
+                        :primary_address_type
   validates_format_of :first_name, :last_name, :with => /\A[a-zA-Z]+(?: [a-zA-Z]+)?\z/
   validates :first_name, :last_name, length: { minimum: 2 }
   validates :middle_name, length: { is: 1 }, allow_blank: true
-
+  validates :primary_state, length: { is: 2 }
+  validates :primary_zip, :numericality => true
+  validates_format_of :primary_zip,
+                    :with => %r{\d{5}(-\d{4})?},
+                    :message => "should be 12345 or 12345-1234"
+  
   belongs_to :role, optional: true
   has_many :phones, dependent: :destroy
   accepts_nested_attributes_for :phones,
@@ -28,6 +47,16 @@ class User < ApplicationRecord
   end
   def regular?
     role.name == 'Regular'
+  end
+
+  # def with_phones
+  #   @user = User.new
+  #   # 1.times {@user.phones.build}
+  #   @user.phones.build
+  # end
+
+  def with_addresses
+    Address.new
   end
 
 end

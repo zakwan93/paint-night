@@ -8,4 +8,5 @@ class Phone < ApplicationRecord
                      :numericality => true, 
                      :length => { :minimum => 10, :maximum => 13 }
   # set_as_primary :primary, owner_key: :user
+  
 end

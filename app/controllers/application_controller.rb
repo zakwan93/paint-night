@@ -13,9 +13,19 @@ class ApplicationController < ActionController::Base
                                                        :age, 
                                                        :ethinicity, 
                                                        :language, 
+                                                       :primary_phone_type,
+                                                       :primary_phone,
+                                                       :primary_address_line_1, 
+                                                       :primary_address_line_2, 
+                                                       :primary_city, 
+                                                       :primary_state, 
+                                                       :primary_zip, 
+                                                       :primary_county, 
+                                                       :primary_country, 
+                                                       :primary_address_type,
                                                        :role_id, 
                                                        phones_attributes: 
-                                                       [:id,:phone_type,:phone_number,:_destroy],addresses_attributes:
+                                                       [:id,:phone_type,:primary_phone,:_destroy],addresses_attributes:
                                                        [:id,:address_line_1, :address_line_2, :city, :state, :zip, :county, :country, :address_type, :_destroy]
                                                          ])
     devise_parameter_sanitizer.permit(:account_update, keys: 
@@ -28,9 +38,19 @@ class ApplicationController < ActionController::Base
                                                            :age, 
                                                            :ethinicity, 
                                                            :language, 
+                                                           :primary_phone_type,
+                                                           :primary_phone,
+                                                           :primary_address_line_1, 
+                                                           :primary_address_line_2, 
+                                                           :primary_city, 
+                                                           :primary_state, 
+                                                           :primary_zip, 
+                                                           :primary_county, 
+                                                           :primary_country, 
+                                                           :primary_address_type,
                                                            :role_id, 
                                                            phones_attributes: 
-                                                           [:id,:phone_type,:phone_number,:_destroy],addresses_attributes:[:id,:address_line_1, :address_line_2, :city, :state, :zip, :county, :country, :address_type, :_destroy]
+                                                           [:id,:phone_type,:primary_phone,:_destroy],addresses_attributes:[:id,:address_line_1, :address_line_2, :city, :state, :zip, :county, :country, :address_type, :_destroy]
                                                          ])
   end
 

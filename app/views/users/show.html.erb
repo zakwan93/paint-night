@@ -108,11 +108,25 @@
                <strong>Phone Numbers</strong>
             </div>
           </div>
-          <% if @user.phones.length == 0 %>
-            <div class="col-md-12 border border-dark p-3" >
-              Phone Number Not Provided.
+          <div class="row" >
+              <div class="col-md-3 border border-dark p-3">
+                 <strong>Phone Type:</strong>
+              </div>
+              <div class="col-md-3 border border-dark p-3">
+                  <%= @user.primary_phone_type %>
+              </div>
+              <div class="col-md-3 border border-dark  p-3">
+                 <strong>Primary Phone Number</strong>
+              </div>
+              <div class="col-md-3 border border-dark p-3">
+                  <%= @user.primary_phone %>
+              </div>
             </div>
-          <% else %>
+          <!-- < if @user.phones.length == 0 %> -->
+          <!--   <div class="col-md-12 border border-dark p-3" >
+              Phone Number Not Provided.
+            </div> -->
+          <!-- < else %> -->
             <% @user.phones.each do |p| %>
             <div class="row" >
               <div class="col-md-3 border border-dark p-3">
@@ -123,20 +137,8 @@
                     N/A
                   <%else%>
                   <%= p.phone_type %>
-                  <% end %>
+                  <!-- < end %> -->
               </div>
-
-              <!-- <div class="col-md-2 border border-dark  p-3">
-                 <strong>Primary:</strong>
-              </div> -->
-              <!-- <div class="col-md-2 border border-dark p-3">
-                  < if p.primary == true %>
-                     Yes
-                  <else%>
-                      No
-                  < end %>
-              </div> -->
-
               <div class="col-md-3 border border-dark  p-3">
                  <strong>Phone Number</strong>
               </div>
@@ -155,11 +157,84 @@
                <strong>Addresses</strong>
             </div>
           </div>
-           <% if @user.addresses.length == 0 %>
+          <div class="row" >
+              <div class="col-md-6 border border-dark  p-3">
+                 <strong>Address Type:</strong>
+              </div>
+              <div class="col-md-6 border border-dark  p-3">
+                  <%= @user.primary_address_type %>
+              </div>
+            </div>
+            <div class="row" >
+              <div class="col-md-3 border border-dark border-top-0 p-3">
+                 <strong>Addres Line 1:</strong>
+              </div>
+              <div class="col-md-3 border border-dark border-top-0 p-3">
+                  <%=  @user.primary_address_line_1 %>
+              </div>
+
+              <div class="col-md-3 border border-dark border-top-0 p-3">
+                 <strong>Address Line 2:</strong>
+              </div>
+              <div class="col-md-3 border border-dark border-top-0 p-3">
+                   <% if @user.primary_address_line_2 == "" %>
+                    N/A
+                  <%else%>
+                  <%=  @user.primary_address_line_2 %>
+                  <% end %>
+              </div>
+            </div>
+            <div class="row" >
+              <div class="col-md-3 border border-dark border-top-0 p-3">
+                 <strong>City:</strong>
+              </div>
+              <div class="col-md-3 border border-dark border-top-0 p-3">
+                  <%=  @user.primary_city %>
+              </div>
+
+              <div class="col-md-3 border border-dark border-top-0 p-3">
+                 <strong>State:</strong>
+              </div>
+              <div class="col-md-3 border border-dark border-top-0 p-3">
+                  <%= @user.primary_state %>
+              </div>
+            </div>
+            <div class="row" >
+              <div class="col-md-3 border border-dark border-top-0 p-3">
+                 <strong>Zip:</strong>
+              </div>
+              <div class="col-md-3 border border-dark border-top-0 p-3">
+                  <%= @user.primary_zip %>
+              </div>
+
+              <div class="col-md-3 border border-dark border-top-0 p-3">
+                 <strong>County:</strong>
+              </div>
+              <div class="col-md-3 border border-dark border-top-0 p-3">
+                  <% if @user.primary_county == "" %>
+                    N/A
+                  <%else%>
+                  <%= @user.primary_county %>
+                  <% end %>
+              </div>
+            </div>
+            <div class="row" >
+              <div class="col-md-6 border border-dark border-top-0 p-3">
+                  <strong>Country:</strong>
+              </div>
+              <div class="col-md-6 border border-dark border-top-0 p-3">
+                  <%= @user.primary_country %>
+              </div>
+            </div>
+         
+          <!--  < if @user.addresses.length == 0 %>
             <div class="col-md-12 border border-dark p-3" >
               Address Not Provided.
             </div>
-          <% else %>
+          < else %> -->
+            <div class="col-md-12   p-3">
+               <strong>Aditional Addresses</strong>
+            </div>
             <% @user.addresses.each do |t| %>
             <div class="row" >
               <div class="col-md-6 border border-dark  p-3">
@@ -255,7 +330,7 @@
               </div>
             </div>
             <% end %>
-          <% end %>
+        
           <div class="row" >
             <div class="col-md-12 p-3">
                <strong>User Last Activity On Website</strong>

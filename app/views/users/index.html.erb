@@ -22,6 +22,10 @@
   <br/>
    <hr class="bg-dark" />
 
+     <% if can? :create, User %>
+    <%= link_to 'Add New Participate', new_user_path %>
+  <% end %>
+
   <div class=" table-responsive py-5"> 
   <table class="table table-bordered table-hover">
     <thead class="thead-dark bg-dark text-light">
@@ -40,20 +44,9 @@
           <td><%= user.email %></td>
           <td><%= user.first_name.capitalize %></td>
           <td><%= user.last_name.capitalize %></td>
-          <td>
-            <% user.phones.each do |t| %>
-              - <%= t.phone_number %>  
-            <% end %>
-          </td>
-          <td>
-            <% user.addresses.each do |t| %>
-              <% if t.city == "" %>
-                 N/A 
-                  <% else %>
-                <%= t.city.capitalize %>
-              <% end %>
-            <% end %>
-          </td>
+          <td><%= user.primary_phone %></td>
+          <td><%= user.primary_city %></td> 
+          
           <td><%= link_to 'Show', user %></td>
            <td>
               <% if can? :update, user %>
@@ -72,10 +65,12 @@
     </tbody>
   </table>
   </div>
-  <br/>
+  <div class="col-md-10">
   <% if can? :create, User %>
-    <%= link_to 'New User', new_user_path %>
+    <%= link_to 'Add New Participate', new_user_path %>
   <% end %>
+</div>
+  <br/>
 </div>
 
 

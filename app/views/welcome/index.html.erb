@@ -38,32 +38,8 @@
              <tr>
               <td><%= user.first_name.capitalize %></td>
               <td><%= user.last_name.capitalize %></td>
-              <td>
-                <% if user.phones.empty? %>
-                  N/A
-                <% else %>
-                  <% user.phones.each do |t| %>
-                    <% if t.phone_number == "" %>
-                      N/A
-                    <% else %>
-                      - <%= t.phone_number %>  
-                    <% end %>
-                  <% end %>
-                <% end %>
-              </td>
-              <td>
-                <% if user.addresses.empty? %>
-                  N/A
-                <% else %>
-                  <% user.addresses.each do |t| %>
-                    <% if t.city == "" %>
-                      N/A 
-                    <% else %>
-                      <%= t.city.capitalize %>
-                    <% end %>
-                  <% end %>
-                <% end %>
-              </td> 
+              <td><%= user.primary_phone %></td>
+              <td><%= user.primary_city %></td> 
             </tr>
           <% end %>
           </tbody>

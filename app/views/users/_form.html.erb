@@ -1,19 +1,17 @@
-        <%= form_with(model: user) do |form| %>
-          <% if user.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-              <ul>
-                <% user.errors.each do |error| %>
-                  <li><%= error.full_message %></li>
-                <% end %>
-              </ul>
-            </div>
+ <%= form_with(model: user) do |form| %>
+    <% if user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+        <ul>
+          <% user.errors.each do |error| %>
+            <li><%= error.full_message %></li>
           <% end %>
-
-        <div class="row g-3 text-dark text-left shadow p-3 mb-5  mt-5 bg-white rounded">
-          <div class="col-md-6">
-            <div class="form-group">
+        </ul>
+      </div>
+    <% end %>
+    <div class="row g-3 text-dark text-left shadow p-3 mb-5  mt-5 bg-white rounded">
+        <div class="col-md-6">
+          <div class="form-group">
               <%= form.label :email, class:"required-field" %><br>
               <%= form.text_field :email, class:"form-control", required: true %>
             </div>
@@ -85,20 +83,82 @@
               <%= collection_select :user, :role_id, Role.all, :id, :name, { prompt: true },{class: "form-control"}%>
             </div>
           </div>
-          <div class="col-md-12">
-            <%= form.fields_for :phones do |phone_form| %>
-              <%= render 'phone_fields', f: phone_form, required: true %>
-            <% end %> 
-            <div>
-              <%= link_to_add_association 'Add Phone Number', form, :phones, class: "btn btn-dark w-100" %>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <%= form.label :primary_phone_type, class:"required-field" %>
+              <%= form.select :primary_phone_type, ["Home", "Work", "Cell"], {:prompt => 'Select Phone Type'}, class: "form-control" , required: true %>
             </div>
           </div>
+          <div class="col-md-6">
+              <div class="form-group">
+                <%= form.label :primary_phone, class:"required-field" %>
+                <%= form.number_field :primary_phone, class: "form-control", placeholder: "9999999999" %>
+              </div>
+          </div>
+
+          <div class="col-md-12">
+            <%= form.fields_for :phones do |phone_form| %>
+              <%= render 'phone_fields', f: phone_form %>
+            <% end %> 
+            <div>
+              <%= link_to_add_association 'Add Aditional Phone Number', form, :phones, class: "btn btn-dark w-100 mt-2" %>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <div class="form-group">
+              <%= form.label :primary_address_type , class:"required-field"%>
+                <%= form.select :primary_address_type, ["Home", "Office", "Others"],{:prompt => 'Select Address Type'}, class: "form-control", required: true %>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <%= form.label :primary_address_line_1, class:"required-field" %>
+                    <%= form.text_field :primary_address_line_1,class:"form-control", required: true %>
+                  </div>
+                </div>
+                <div class="col-md-5">
+                  <div class="form-group">
+                    <%= form.label :primary_address_line_2 %>
+                    <%= form.text_field :primary_address_line_2,class:"form-control" %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= form.label :primary_city , class:"required-field" %>
+                    <%= form.text_field :primary_city,class:"form-control", required: true %>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <%= form.label :primary_state, class:"required-field" %>
+                    <%= form.text_field :primary_state,class:"form-control", required: true %>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <%= form.label :primary_zip, class:"required-field" %>
+                    <%= form.text_field :primary_zip,class:"form-control" , required: true%>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= form.label :primary_county %>
+                    <%= form.text_field :primary_county,class:"form-control" %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= form.label :primary_country, class:"required-field" %>
+                    <%= form.text_field :primary_country, class:"form-control", value: "USA" ,required: true %>
+                  </div>
+                </div>
            <div class="col-md-12">
             <%= form.fields_for :addresses do |address_form| %>
               <%= render 'address_fields', f: address_form %>
             <% end %>
             <div>
-              <%= link_to_add_association 'Add New Address', form, :addresses,class: "btn btn-dark  w-100" %>
+              <%= link_to_add_association 'Add Aditional Address', form, :addresses,class: "btn btn-dark mt-2 w-100" %>
             </div>
           </div>
 
@@ -106,5 +166,5 @@
             <%= form.submit "Submit", class: "btn btn-success" %>
           </div>
           <!-- </div> -->
-        </div>
-        <% end %>
+    </div>
+<% end %>
