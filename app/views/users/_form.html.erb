@@ -10,157 +10,166 @@
       </div>
     <% end %>
     <div class="row g-3 text-dark text-left shadow p-3 mb-5  mt-5 bg-white rounded">
-        <div class="col-md-6">
-          <div class="form-group">
-              <%= form.label :email, class:"required-field" %><br>
-              <%= form.text_field :email, class:"form-control", required: true %>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <%= form.label :password, class:"required-field" %><em>(Leave blank if editing the form)</em><br>
-              <%= form.password_field :password,class:"form-control" %>
-            </div>
-          </div>
-         <!--  <div class="row"> -->
-          <div class="col-md-2">
-            <div class="form-group">
-              <%= form.label :title %>
-              <%= form.select :title, ["Mr", "Mrs", "Miss", "Jr", "Sr"], {:prompt => 'Select Title'}, {class: "form-control"}%>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <%= form.label "First Name", class:"required-field" %>
-              <%= form.text_field :first_name,class:"form-control", required: true %>
-            </div>
-          </div>
-          <div class="col-md-2">
-            <div class="form-group">
-              <%= form.label "Middle Initial" %>
-              <%= form.text_field :middle_name,class:"form-control" %>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <%= form.label "Last Name", class:"required-field" %>
-              <%= form.text_field :last_name,class:"form-control", required: true %>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <%= form.label "Date of Birth", class:"required-field" %>
-              <%= form.date_field :dob, max: Date.today, min: Date.new(1950, 01, 01), class:"form-control", required: true %>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="form-group">
-              <%= form.label :age %><em>(Age must be in range of 10 to 70)</em>
-              <%= form.number_field :age, min: 10, max: 70, class:"form-control"%>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <%= form.label :gender ,class:"required-field"%>
-              <%= form.select :gender, ["Male", "Female", "I prefer not to  say"], {:prompt => 'Select Your Gender'}, class: "form-control", required: true %>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <%= form.label :ethinicity %>
-              <%= form.select :ethinicity, ["American Indian or Alaska Native", "Asian", "Black or African American", "Native Hawaiian or Other Pacific Islander", "White", "Others"], {:prompt => 'Select Your Ethinicity'}, {class: "form-control"}%>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <%= form.label :language %>
-              <%= form.select :language, ["English", "Hindi", "Spanish", "Chineese", "French", "others"], {:prompt => 'Select Your Language'}, {class: "form-control"}%>
-            </div>
-          </div>
-          <div class="col-md-12">
-            <div class="form-group">
-              <%= form.label :role %>
-              <%= collection_select :user, :role_id, Role.all, :id, :name, { prompt: true },{class: "form-control"}%>
-            </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="form-group">
-              <%= form.label :primary_phone_type, class:"required-field" %>
-              <%= form.select :primary_phone_type, ["Home", "Work", "Cell"], {:prompt => 'Select Phone Type'}, class: "form-control" , required: true %>
-            </div>
-          </div>
-          <div class="col-md-6">
-              <div class="form-group">
-                <%= form.label :primary_phone, class:"required-field" %>
-                <%= form.number_field :primary_phone, class: "form-control", placeholder: "9999999999" %>
-              </div>
-          </div>
-
-          <div class="col-md-12">
-            <%= form.fields_for :phones do |phone_form| %>
-              <%= render 'phone_fields', f: phone_form %>
-            <% end %> 
-            <div>
-              <%= link_to_add_association 'Add Aditional Phone Number', form, :phones, class: "btn btn-dark w-100 mt-2" %>
-            </div>
-          </div>
-          <div class="col-md-2">
-            <div class="form-group">
-              <%= form.label :primary_address_type , class:"required-field"%>
-                <%= form.select :primary_address_type, ["Home", "Office", "Others"],{:prompt => 'Select Address Type'}, class: "form-control", required: true %>
-                  </div>
-                </div>
-                <div class="col-md-5">
+        <div class="col-md-2">
                   <div class="form-group">
-                    <%= form.label :primary_address_line_1, class:"required-field" %>
-                    <%= form.text_field :primary_address_line_1,class:"form-control", required: true %>
-                  </div>
-                </div>
-                <div class="col-md-5">
-                  <div class="form-group">
-                    <%= form.label :primary_address_line_2 %>
-                    <%= form.text_field :primary_address_line_2,class:"form-control" %>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <%= form.label :primary_city , class:"required-field" %>
-                    <%= form.text_field :primary_city,class:"form-control", required: true %>
+                    <%= form.label :title %>
+                    <%= form.select :title, ["Mr", "Mrs", "Miss", "Jr", "Sr"], {:prompt => 'Select Title'}, {class: "form-select"}%>
                   </div>
                 </div>
                 <div class="col-md-4">
                   <div class="form-group">
-                    <%= form.label :primary_state, class:"required-field" %>
-                    <%= form.text_field :primary_state,class:"form-control", required: true %>
+                    <%= form.label :first_name, "First Name", class:"required-field" %>
+                    <%= form.text_field :first_name,class:"form-control", required: true %>
                   </div>
                 </div>
                 <div class="col-md-2">
                   <div class="form-group">
-                    <%= form.label :primary_zip, class:"required-field" %>
-                    <%= form.text_field :primary_zip,class:"form-control" , required: true%>
+                    <%= form.label :middle_initial, "Middle Initial" %>
+                    <%= form.text_field :middle_name,class:"form-control" %>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <%= form.label :last_name, "Last Name", class:"required-field" %>
+                    <%= form.text_field :last_name,class:"form-control", required: true %>
+                  </div>
+                </div>
+
+                <div class="col-md-4 ">
+                  <div class="form-group">
+                    <%= form.label :email, class:"required-field" %>
+                    <%= form.email_field :email, class:"form-control", required: true %>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <%= form.label :dob, "Date of Birth", class:"required-field" %>
+                    <%= form.date_field :dob, max: Date.today, min: Date.new(1950, 01, 01), class:"form-control",required: true %>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <%= form.label :age %><em>(Age range of 10 to 70)</em>
+                    <%= form.number_field :age, min: 10, max: 70, class:"form-control"%>
+                  </div>
+                </div>
+
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <%= form.label :gender, class:"required-field" %>
+                    <%= form.select :gender, ["Male", "Female", "I prefer not to  say"], {:prompt => 'Select Your Gender'}, class: "form-select", required: true%>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <%= form.label :ethinicity %>
+                    <%= form.select :ethinicity, ["American Indian or Alaska Native", "Asian", "Black or African American", "Native Hawaiian or Other Pacific Islander", "White", "Others"], {:prompt => 'Select Your Ethinicity'}, {class: "form-select"}%>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <%= form.label :language %>
+                    <%= form.select :language, ["English", "Hindi", "Spanish", "Chineese", "French", "others"], {:prompt => 'Select Your Language'}, {class: "form-select"}%>
+                  </div>
+                </div>
+                <!-- <div class="col-md-12">
+                  <div class="form-group">
+                    <%= form.label :role %>
+                    <%= collection_select :user, :role_id, Role.all, :id, :name, { prompt: true },{class: "form-control"}%>
+                  </div>
+                </div> -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= form.label :primary_phone_type, "Phone Type", class:"required-field" %>
+                    <%= form.select :primary_phone_type, ["Home", "Work", "Cell"], {:prompt => 'Select Phone Type'}, class: "form-select",required: true %>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <%= form.label :primary_county %>
+                    <%= form.label :primary_phone, "Phone Number", class:"required-field" %>
+                    <%= form.number_field :primary_phone, class: "form-control", placeholder: "9999999999", required: true %>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                    <%= form.fields_for :phones do |phone_form| %>
+                    <%= render 'phone_fields', f: phone_form %>
+                  <% end %> 
+                <div>
+                    <%= link_to_add_association 'Add Phone Number', form, :phones, class: "btn btn-dark text-light w-100" %>
+                  </div>
+                </div>
+
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <%= form.label :primary_address_type,"Address Type", class:"required-field" %>
+                    <%= form.select :primary_address_type, ["Home", "Office", "Others"],{:prompt => 'Select Address Type'}, class: "form-select",required: true %>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <%= form.label :primary_address_line_1, "Address Line 1", class:"required-field" %>
+                    <%= form.text_field :primary_address_line_1,class:"form-control",required: true %>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <%= form.label :primary_address_line_2, "Address Line 2" %>
+                    <%= form.text_field :primary_address_line_2,class:"form-control" %>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <div class="form-group">
+                    <%= form.label :primary_city, "City" , class:"required-field" %>
+                    <%= form.text_field :primary_city,class:"form-control",required: true %>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <%= form.label :primary_state,"State" ,class:"required-field" %>
+                    <%= form.text_field :primary_state,class:"form-control",required: true %>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <%= form.label :primary_zip, "Zip Code", class:"required-field" %>
+                    <%= form.text_field :primary_zip,class:"form-control",required: true %>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <%= form.label :primary_county, "County" %>
                     <%= form.text_field :primary_county,class:"form-control" %>
                   </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-3">
                   <div class="form-group">
-                    <%= form.label :primary_country, class:"required-field" %>
-                    <%= form.text_field :primary_country, class:"form-control", value: "USA" ,required: true %>
+                    <%= form.label :primary_country, "Country", class:"required-field" %>
+                    <%= form.text_field :primary_country,class:"form-control" ,required: true%>
                   </div>
                 </div>
-           <div class="col-md-12">
-            <%= form.fields_for :addresses do |address_form| %>
-              <%= render 'address_fields', f: address_form %>
-            <% end %>
-            <div>
-              <%= link_to_add_association 'Add Aditional Address', form, :addresses,class: "btn btn-dark mt-2 w-100" %>
-            </div>
-          </div>
+
+                <div class="col-md-12">
+                  <%= form.fields_for :addresses do |address_form| %>
+                    <%= render 'address_fields', f: address_form %>
+                  <% end %>
+                  <div>
+                    <%= link_to_add_association 'Add New Address', form, :addresses,class: "btn btn-dark text-light  w-100" %>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <%= form.label :role, "Role" %>
+                    <%= collection_select :user, :role_id, Role.all, :id, :name, { prompt: true },{class: "form-select"}%>
+                  </div>
+                </div>
+
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <%= form.label :password, class:"required-field" %><em>(Leave blank if editing the form)</em><br>
+                    <%= form.password_field :password,class:"form-control" %>
+                  </div>
+                </div>
 
           <div class="col-md-12 text-center">
             <%= form.submit "Submit", class: "btn btn-success" %>
