@@ -2,49 +2,49 @@
   <div class="row">
     <div class="col-md-2">
       <div class="form-group">
-        <%= f.label :address_type %>
+        <%= f.label :address_type, "Address Type", class:"required-field" %>
         <%= f.select :address_type, ["Home", "Office", "Others"],{:prompt => 'Select Address Type'}, {class: "form-select"} %>
       </div>
     </div>
     <div class="col-md-5">
       <div class="form-group">
-        <%= f.label :address_line_1, class:"required-field" %>
+        <%= f.label :address_line_1, "Address Line 1", class:"required-field" %>
         <%= f.text_field :address_line_1,class:"form-control" %>
       </div>
     </div>
     <div class="col-md-5">
       <div class="form-group">
-        <%= f.label :address_line_2 %>
+        <%= f.label :address_line_2, "Address Line 2"%>
         <%= f.text_field :address_line_2,class:"form-control" %>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group">
-        <%= f.label :city , class:"required-field" %>
+        <%= f.label :city, "City" , class:"required-field" %>
         <%= f.text_field :city,class:"form-control" %>
       </div>
     </div>
     <div class="col-md-4">
       <div class="form-group">
-        <%= f.label :state, class:"required-field" %>
+        <%= f.label :state, "State" ,class:"required-field" %>
         <%= f.text_field :state,class:"form-control" %>
       </div>
     </div>
     <div class="col-md-2">
       <div class="form-group">
-        <%= f.label :zip, class:"required-field" %>
+        <%= f.label :zip, "Zip Code", class:"required-field" %>
         <%= f.text_field :zip,class:"form-control" %>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group">
-        <%= f.label :county %>
+        <%= f.label :county, "County" %>
         <%= f.text_field :county,class:"form-control" %>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group">
-        <%= f.label :country, class:"required-field" %>
+        <%= f.label :country, "Country", class:"required-field" %>
         <%= f.text_field :country,class:"form-control" %>
       </div>
     </div>

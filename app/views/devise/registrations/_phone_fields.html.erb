@@ -2,13 +2,13 @@
   <div class="row">
     <div class="col-md-6">
       <div class="form-group">
-        <%= f.label :phone_type %>
+        <%= f.label :phone_type, class:"required-field" %>
         <%= f.select :phone_type, ["Home", "Work", "Cell"], {:prompt => 'Select Phone Type'}, {class: "form-select"} %>
       </div>
     </div>
     <div class="col-md-6">
       <div class="form-group">
-        <%= f.label :phone_number %>
+        <%= f.label :phone_number, class:"required-field" %>
         <%= f.number_field :phone_number, class: "form-control", placeholder: "9999999999" %>
       </div>
     </div>
@@ -19,8 +19,6 @@
       <!-- </div>
     </div> -->
   </div>
-    <% unless f.index == 0 %>
       <%= link_to_remove_association 'Remove Phone', f, class: "text-danger" %> 
-    <% end %>
 </div>
   

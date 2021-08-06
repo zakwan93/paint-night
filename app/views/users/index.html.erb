@@ -23,8 +23,8 @@
    <hr class="bg-dark" />
 
      <% if can? :create, User %>
-    <%= link_to 'Add New Participate', new_user_path %>
-  <% end %>
+    <%= link_to 'Add New Participant', new_user_path %>
+      <% end %>
 
   <div class=" table-responsive py-5"> 
   <table class="table table-bordered table-hover">
@@ -67,7 +67,7 @@
   </div>
   <div class="col-md-10">
   <% if can? :create, User %>
-    <%= link_to 'Add New Participate', new_user_path %>
+    <%= link_to 'Add New Participant', new_user_path %>
   <% end %>
 </div>
   <br/>
