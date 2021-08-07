@@ -1,40 +1,62 @@
-<section id="signup" class="min-vh-100 bg-light ">
-    <div id="cover-caption">
-        <div class="container text-left">
-            <div class="row text-white bg-white shadow p-3 mb-5  mt-5 bg-white rounded ">
-                <div class="col-md-5 mx-auto text-center form p-4">
-                    <h1 class="display-4 py-2 text-dark">Login</h1>
-                    <div class="px-2 justify-content-center">
-                      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<main class="d-flex align-items-center min-vh-100 py-3 py-md-0 bg-light">
+    <div class="container">
+      <div class="card login-card shadow p-3 mb-5 mt-5 rounded">
+        <div class="row no-gutters">
+          <div class="col-md-5">
+            <%= image_tag "paint-night-bg.jpeg", style: 'height:100%;width:100%;', class: "login-card-img" %>
+          </div>
+          <div class="col-md-7">
+            <div class="card-body">
+              <div class="brand-wrapper">
+                <h4><%= link_to "Paint Night", root_path, class:"text-reset" %></h4>
+              </div>
+              <p class="login-card-description">Sign into your account</p>
+               <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             
-                            <div class="form-group">
-                                <%= f.label :email %><br>
-                                <%= f.email_field :email, autofocus: true,class:"form-control", autocomplete: "email", placeholder: "Email" %>
-                            </div>
-                            <div class="form-group">
-                                <%= f.label :password %><br />
-                                <%= f.password_field :password, autocomplete: "current-password",class:"form-control", placeholder: "Password" %>
-                            </div>
-                          <!--   <% if devise_mapping.rememberable? %>
-                                <div class="field text-dark text-left">
-                                  <%= f.check_box :remember_me %>
-                                  <%= f.label :remember_me %>
-                                </div>
-                            <% end %> -->
-                            <div class="actions mt-3">
-                              <%= f.submit "Log in",class: "btn btn-success btn-lg" %>
-                            </div>
-                        <% end %>
-
-                        <div class="col-md-12 text-center text-dark">
-                            <%= link_to "Register", new_user_registration_path %> | 
-                            <%= link_to "Home", root_path %>
-                        </div>
+                    <div class="form-group">
+                        <%= f.label :email %><br>
+                        <%= f.email_field :email, autofocus: true,class:"form-control ", autocomplete: "email", placeholder: "Email" %>
                     </div>
-                </div>
+                    <div class="form-group">
+                        <%= f.label :password %><br />
+                        <%= f.password_field :password, autocomplete: "current-password",class:"form-control", placeholder: "Password" %>
+                    </div>
+                    <% if devise_mapping.rememberable? %>
+                        <div class="field text-dark text-left">
+                            <%= f.check_box :remember_me %>
+                            <%= f.label :remember_me %>
+                        </div>
+                    <% end %>
+                    <div class="col-md-12 actions mt-3">
+                        <%= f.submit "Log in",class: "btn btn-dark btn-lg" %>
+                    </div>
+                <% end %>
+            
+                <%= link_to "Forgot password?", new_password_path('user'), :class => "forgot-password-link" %>
+                <p class="login-card-footer-text">
+                    Didn't register yet? 
+                    <%= link_to "Register Here", new_user_registration_path, class:"text-reset" %>
+                 </p>
             </div>
+          </div>
         </div>
+      </div>
     </div>
-</section>
+  </main>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

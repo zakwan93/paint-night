@@ -29,7 +29,7 @@
 }
 
 
-body, p, ol, ul, td, h1,h2,h3,h4,h5,a, input[type=submit] {
+body, p, ol, ul, td, h1,h2,h3,h4,h5,a, input[type=submit],label {
   /*font-family: verdana, arial, helvetica, sans-serif;*/
    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
@@ -168,6 +168,10 @@ table {
   transform:  translateX(-50%) translateY(-50%);
   background-image: url("paint-night-main.jpeg");
   background-size: cover;
+}
+
+.background{
+   background-image: url("paint-night-main.jpeg");
 }
 
 a:hover{
