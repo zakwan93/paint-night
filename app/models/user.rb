@@ -49,14 +49,10 @@ class User < ApplicationRecord
     role.name == 'Regular'
   end
 
-  # def with_phones
-  #   @user = User.new
-  #   # 1.times {@user.phones.build}
-  #   @user.phones.build
-  # end
-
-  def with_addresses
-    Address.new
-  end
+  ransacker :full_name do |parent|
+      Arel::Nodes::InfixOperation.new('||',
+                                      Arel::Nodes::InfixOperation.new('||', parent.table[:first_name], ' '),
+                                      parent.table[:last_name])
+    end
 
 end
