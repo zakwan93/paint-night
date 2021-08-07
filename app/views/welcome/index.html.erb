@@ -49,9 +49,13 @@
 <% else %>
   <div id="background"></div>
   <div class="d-flex justify-content-center align-items-center flex-column vh-100 text-dark main-cover ">
-    <h1 class="text-center">Welcome To The Paint Night Event</h1>
-      <h4 class="text-center"> Winner will be awarded with <strong class="text-warning">$1000 </strong> USD prize.</h4>
-      <h3 class=" border border-dark p-3 bg-warning text-center"> Event Detail - 08/09/2021 at 835,Brush Hollow Road. Westbury, NY. @8 PM EST.</h3>
+    <h1 class="text-center">Westbury Paint Night Event</h1>
+      <h4 class="text-center"> Winner will be awarded with <strong class="text-light bg-dark">$1000 </strong>  USD prize.</h4>
+      <h3 class="p-3 text-center"> Event Details </h3>
+      <div class="border shadow-lg p-3 mb-4 rounded border-dark transparent">
+        <p class="text-center"><strong>835 Brush Hollow Rd. Westbury,NY.</strong></p>
+        <p class="text-center"><strong>09th Auguest, 2021 | 8 PM EST. </strong>
+      </div>
       <p class="lead">
         <%= link_to "Register", new_user_registration_path, class:"btn btn-lg btn-dark text-white" %> |
         <%= link_to "Sign In", new_user_session_path,class:"btn btn-lg btn-dark text-white"%>

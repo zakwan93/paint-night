@@ -9,9 +9,9 @@
     position: relative;
 }
 
-.main-cover{
+/*.main-cover{
   font-family: 'Amatic SC', cursive;
-}
+}*/
 
 #signup {
     height: 100%;
@@ -29,10 +29,9 @@
 }
 
 
-body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+body, p, ol, ul, td, h1,h2,h3,h4,h5,a, input[type=submit] {
+  /*font-family: verdana, arial, helvetica, sans-serif;*/
+   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
 pre {
@@ -56,6 +55,10 @@ a:hover {
 
 div.field, div.actions {
   margin-bottom: 10px;
+}
+
+.transparent{
+  background:rgba(255,255,255, 0.4)
 }
 
 #notice {
