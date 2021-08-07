@@ -4,10 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :email, presence: true, format: Devise.email_regexp
-   validates :primary_phone,
-                      :presence => {:message => 'can not be blank'},
-                     :numericality => true, 
-                     :length => { :minimum => 10, :maximum => 13 }
+   # validates :primary_phone,
+   #                    :presence => {:message => 'can not be blank'},
+   #                   # :numericality => true, 
+   #                   :length => { :minimum => 12, :maximum => 15 }
+  validates :primary_phone,
+            :length => { is: 12 },
+              format: { with: /\d{3}-\d{3}-\d{4}/, message: "is not valid" }
 
   validates_presence_of :first_name,
                         :last_name,

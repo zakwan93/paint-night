@@ -19,3 +19,4 @@ require("stylesheets/application.scss")
 require("@nathanvda/cocoon")
 require('../src/index');
 import "@fortawesome/fontawesome-free/css/all"
+
