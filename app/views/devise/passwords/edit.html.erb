@@ -1,8 +1,7 @@
-<h2>Change your password</h2>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-  <%= f.hidden_field :reset_password_token %>
+
+
+
 
   <div class="field">
     <%= f.label :password, "New password" %><br />
@@ -23,3 +22,38 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+<main class="d-flex align-items-center min-vh-100 py-3 py-md-0 bg-light">
+    <div class="container">
+      <div class="card login-card shadow p-3 mb-5 mt-5 rounded">
+        <div class="row no-gutters">
+          <!-- <div class="col-md-7"> -->
+            <div class="card-body">
+               <div class="brand-wrapper">
+                <h2>Change your password</h2>
+                <p class="login-card-description">Password reset instruction will be sent to your email after submiting this form.</p>
+               </div>
+               <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+                    <%= render "devise/shared/error_messages", resource: resource %>
+                    <%= f.hidden_field :reset_password_token %>
+                  <div class="form-field">
+                    <%= f.label :password, "New password" %><br />
+                    <% if @minimum_password_length %>
+                      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+                    <% end %>
+                    <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+                  </div>
+
+                  <div class="form-field">
+                    <%= f.label :password_confirmation, "Confirm new password" %><br />
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                  </div>
+                  <div class="col-md-12 actions mt-3">
+                    <%= f.submit "Change my password", class: "btn btn-dark btn-lg" %>
+                  </div>
+              <% end %>
+            </div>
+          <!-- </div> -->
+        </div>
+      </div>
+    </div>
+</main>

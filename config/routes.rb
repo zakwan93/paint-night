@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   scope '/admin' do
     resources :users
   end
+
+  default_url_options :host => "https://paint-night-registration.herokuapp.com/"
+
   resources :users
   resources :roles
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
