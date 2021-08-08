@@ -6,17 +6,17 @@
 
   <%= search_form_for @ransack_users, as: :users_search, url: root_path, method: :get do |f| %>
       <div class="input-group">
-        <div class="col-md-10 col-xs-8">
+        <div class="col-md-9 col-xs-6 m-2">
           <%= f.search_field :full_name_cont, :placeholder => 'Search by Name', class: "form-control border rounded-pill" %>
         </div>
-        <div class="col-md-1 d-flex justify-content-center align-items-center">
-          <span class="input-group-append mr-2">
-            <button class="btn btn-dark btn-md mr-2" type="submit">
+        <div class="col-md-1 col-xs-2 d-flex justify-content-center align-items-center">
+          <span class="input-group-append ">
+            <button class="btn btn-dark btn-md " type="submit">
               <span aria-hidden="true" class="fa fa-search"></span>
             </button>
           </span>
         </div>
-        <div class="col-md-1">
+        <div class="col-md-1 col-xs-4 m-2">
           <%= link_to 'Refresh', root_path, class:"btn btn-dark text-light" %>
         </div>
       </div>
@@ -51,8 +51,8 @@
   <div class="d-flex justify-content-center align-items-center flex-column vh-100 text-dark main-cover ">
     <h1 class="text-center"><strong>Westbury Paint Night Event</strong></h1>
       <div class="border shadow-lg p-3 mb-2 rounded border-dark transparent">
-        <p class="text-center"><strong>835 Brush Hollow Rd. Westbury,NY</strong></p>
-        <p class="text-center"><strong>09th Auguest, 2021 | 8 PM EST</strong>
+        <p class="text-center mt-3"><strong>835 Brush Hollow Rd. Westbury,NY</strong></p>
+        <p class="text-center"><strong>9th August, 2021 | 8 PM EST</strong>
       </div>
        <h5 class="text-center"> Winner will be awarded with <strong class="text-light bg-dark">$1000 </strong>  USD prize</h5>
       <p class="lead">

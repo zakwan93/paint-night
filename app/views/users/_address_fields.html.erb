@@ -27,7 +27,7 @@
     <div class="col-md-4">
       <div class="form-group">
         <%= f.label :state, "State" ,class:"required-field" %>
-        <%= f.text_field :state,class:"form-control" %>
+         <%= f.select :state, options_for_select(us_states),{:prompt => 'Select State'}, class: "form-select",required: true %>
       </div>
     </div>
     <div class="col-md-2">
@@ -45,7 +45,7 @@
     <div class="col-md-6">
       <div class="form-group">
         <%= f.label :country, "Country", class:"required-field" %>
-        <%= f.text_field :country,class:"form-control" %>
+        <%= f.text_field :country,class:"form-control", value: "USA" %>
       </div>
     </div>
   </div>

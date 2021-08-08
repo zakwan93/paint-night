@@ -9,8 +9,8 @@ class User < ApplicationRecord
    #                   # :numericality => true, 
    #                   :length => { :minimum => 12, :maximum => 15 }
   validates :primary_phone,
-            :length => { is: 12 },
-              format: { with: /\d{3}-\d{3}-\d{4}/, message: "is not valid" }
+            :length => { :minimum => 12, :maximum => 15 },
+            format: { with: /\d{3}-\d{3}-\d{4}/, message: "is not valid" }
 
   validates_presence_of :first_name,
                         :last_name,

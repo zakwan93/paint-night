@@ -127,7 +127,7 @@
                 <div class="col-md-3">
                   <div class="form-group">
                     <%= form.label :primary_state,"State" ,class:"required-field" %>
-                    <%= form.text_field :primary_state,class:"form-control",required: true %>
+                     <%= form.select :primary_state, options_for_select(us_states),{:prompt => 'Select State'}, class: "form-select",required: true %>
                   </div>
                 </div>
                 <div class="col-md-3">
@@ -145,7 +145,7 @@
                 <div class="col-md-3">
                   <div class="form-group">
                     <%= form.label :primary_country, "Country", class:"required-field" %>
-                    <%= form.text_field :primary_country,class:"form-control" ,required: true%>
+                    <%= form.text_field :primary_country,class:"form-control" ,required: true, value: "USA" %>
                   </div>
                 </div>
 
