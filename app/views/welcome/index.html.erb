@@ -29,8 +29,10 @@
           <tr>
             <th>First name</th>
             <th>Last name</th>
+            <th>Email</th>
             <th>Phone</th>
             <th>City</th>
+            <th COLSPAN="1" class="text-center"> Action </th>
           </tr>
         </thead>
         <tbody>
@@ -38,8 +40,10 @@
              <tr>
               <td><%= user.first_name.capitalize %></td>
               <td><%= user.last_name.capitalize %></td>
+              <td><%= user.email %>
               <td><%= user.primary_phone %></td>
               <td><%= user.primary_city %></td> 
+              <td><%= link_to 'Show', user %></td>
             </tr>
           <% end %>
           </tbody>

@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  load_and_authorize_resource
+  # load_and_authorize_resource
 
   # GET /users
   def index
@@ -26,15 +26,18 @@ class UsersController < ApplicationController
     # 1.times {@user.phones.build}
     # @user.phones.build
     # @user.addresses.build
+    authorize! :new, @user
   end
 
   # GET /users/1/edit
   def edit
+    authorize! :new, @user
   end
 
   # POST /users
   def create
     # puts params
+    authorize! :new, @user
     phone_index = params[:user][:primary_phone]
     # puts phone_index
     # puts params[:user][:phones_attributes]
@@ -54,6 +57,7 @@ class UsersController < ApplicationController
       # phone_index = params[:user][:primary_phone]
       # params[:user][:phones_attributes][phone_index][:primary] = true 
       # if params[:user][:phones_attributes][phone_index] 
+    authorize! :new, @user
     if user_params[:password].blank?
       user_params.delete(:password)
       user_params.delete(:password_confirmation)
@@ -75,6 +79,7 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   def destroy
+    authorize! :new, @user
     @user.destroy
     redirect_to users_url, notice: 'User was successfully destroyed.'
   end

@@ -4,8 +4,12 @@
        <h1 class="display-4 py-2 text-dark text-center"><%= @user.first_name.capitalize %>'s Profile</h1>
        <br/>
        <div class="col-md-12 text-right mt-4">
-          <%= link_to 'Edit', edit_user_path(@user) %> |
-          <%= link_to 'Back', users_path %>
+         <% if @current_user&.admin? %>
+            <%= link_to 'Edit', edit_user_path(@user) %> |
+            <%= link_to 'Back', users_path %>
+          <% else %>
+            <%= link_to 'Back', root_path %>
+          <% end %>
         </div>
        <hr class="bg-dark" />
        <br/>
@@ -173,13 +177,13 @@
               <span><%= @user.primary_address_type %></span>
             </div>
             <div class="col-4 border-bottom border-dark">
-              <span><%= @user.primary_address_line_1.capitalize %></span>
+              <span><%= @user.primary_address_line_1 %></span>
             </div>
              <div class="col-4 border-bottom border-dark">
               <% if @user.primary_address_line_2 == "" || @user.primary_address_line_2 == nil %>
                   <span>-</span>
               <%else%>
-                <%=  @user.primary_address_line_2.capitalize %>
+                <%=  @user.primary_address_line_2 %>
               <% end %>
             </div>
             <div class="col-2 border-bottom border-dark">
@@ -329,8 +333,12 @@
               </div>
             </div>
           <div class="col-2 text-left mt-4">
-            <%= link_to 'Edit', edit_user_path(@user) %> |
-            <%= link_to 'Back', users_path %>
+            <% if @current_user&.admin? %>
+              <%= link_to 'Edit', edit_user_path(@user) %> |
+              <%= link_to 'Back', users_path %>
+            <% else %>
+              <%= link_to 'Back', root_path %>
+            <% end %>
           </div>
        </div>
      </div>

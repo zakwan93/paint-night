@@ -87,7 +87,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <%= form.label :primary_phone, "Phone Number", class:"required-field" %>
-                    <%= form.text_field :primary_phone, class: "form-control", placeholder: "999-999-9999", required: true %>
+                    <%= form.text_field :primary_phone, class: "form-control", placeholder: "XXX-XXX-XXXX", required: true %>
                   </div>
                 </div>
                 <div class="col-md-12">
@@ -126,7 +126,7 @@
                 <div class="col-md-3">
                   <div class="form-group">
                     <%= form.label :primary_state, "State",class:"required-field" %>
-                    <%= form.select :primary_state, options_for_select(us_states),{:prompt => 'Select State'}, class: "form-select",required: true %>
+                    <%= form.select :primary_state, options_for_select(us_states, form.object.primary_state || "Select State"),{:prompt => 'Select State'}, class: "form-select",required: true %>
                   </div>
                 </div>
                 <div class="col-md-3">
