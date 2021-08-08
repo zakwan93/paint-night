@@ -58,8 +58,10 @@ class ApplicationController < ActionController::Base
     flash[:error] = 'Only Admin have Access To This Page'
     redirect_to root_url
   end
+  
 
   def set_global_varriables
     @ransack_users = User.ransack(params[:users_search], search_key: :users_search)
   end
+
 end

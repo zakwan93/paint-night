@@ -29,7 +29,7 @@
 }
 
 
-body, p, ol, ul, td, h1,h2,h3,h4,h5,a, input[type=submit],label {
+body, p, ol, ul, td, h1,h2,h3,h4,h5,a, input[type=submit],label,span {
   /*font-family: verdana, arial, helvetica, sans-serif;*/
    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
