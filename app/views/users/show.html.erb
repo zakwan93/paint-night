@@ -15,15 +15,15 @@
             <u>Basic Information</u>
           </h5>
           <div class="row ">
-            <div class="col-md-3 border-bottom border-dark ">
+            <div class="col-3 border-bottom border-dark ">
               <span><%= @user.title %></span>
             </div>
            
-            <div class="col-md-3 border-bottom border-dark">
+            <div class="col-3 border-bottom border-dark">
               <span><%= @user.first_name.capitalize %></span>
             </div>
             
-            <div class="col-md-3 border-bottom border-dark">
+            <div class="col-3 border-bottom border-dark">
               <% if @user.middle_name == "" || @user.middle_name==nil %>
                   <span>-</span>
               <%else%>
@@ -31,22 +31,22 @@
               <% end %>
             </div>
            
-            <div class="col-md-3 border-bottom border-dark">
+            <div class="col-3 border-bottom border-dark">
               <span><%= @user.last_name.capitalize %></span>
             </div>
           </div>
 
           <div class="row">
-             <div class="col-md-3 text-muted">
+             <div class="col-3 text-muted">
               <p>Title</p>
             </div>
-            <div class="col-md-3 text-muted ">
+            <div class="col-3 text-muted ">
               <p>First Name</p>
             </div>
-             <div class="col-md-3 text-muted">
+             <div class="col-3 text-muted">
               <p>Middle Initials</p>
             </div>
-            <div class="col-md-3 text-muted">
+            <div class="col-3 text-muted">
               <p>Last Name</p>
             </div>
           </div>
@@ -61,11 +61,11 @@
           </div>
 
           <div class="row">
-            <div class="col-md-4 border-bottom border-dark">
+            <div class="col-4 border-bottom border-dark">
               <span><%= @user.dob %></span>
             </div>
            
-            <div class="col-md-4 border-bottom border-dark">
+            <div class="col-4 border-bottom border-dark">
                 <% if @user.age == "" or @user.age == nil %>
                   <span>-</span>
                 <%else%>
@@ -73,29 +73,29 @@
                 <% end %>
             </div>
             
-            <div class="col-md-4 border-bottom border-dark">
+            <div class="col-4 border-bottom border-dark">
               <span><%= @user.role.name %></span>
             </div>
           </div>
 
           <div class="row">
-             <div class="col-md-4 text-muted">
+             <div class="col-4 text-muted">
               <p>Date of Birth</p>
             </div>
-            <div class="col-md-4 text-muted">
+            <div class="col-4 text-muted">
               <p>Age</p>
             </div>
-             <div class="col-md-4 text-muted">
+             <div class="col-4 text-muted">
               <p>User Role</p>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-md-4 border-bottom border-dark">
+            <div class="col-4 border-bottom border-dark">
               <span><%= @user.gender %></span>
             </div>
            
-            <div class="col-md-4 border-bottom border-dark">
+            <div class="col-4 border-bottom border-dark">
               <% if @user.ethinicity == "" || @user.ethinicity == nil %>
                   <span>-</span>
               <%else%>
@@ -103,7 +103,7 @@
               <% end %>
             </div>
             
-            <div class="col-md-4 border-bottom border-dark">
+            <div class="col-4 border-bottom border-dark">
               <% if @user.language == "" || @user.language == nil %>
                   <span>-</span>
               <%else%>
@@ -113,13 +113,13 @@
           </div>
 
           <div class="row">
-             <div class="col-md-4 text-muted">
+             <div class="col-4 text-muted">
               <p>Gender</p>
             </div>
-            <div class="col-md-4 text-muted">
+            <div class="col-4 text-muted">
               <p>Ethinicity</p>
             </div>
-             <div class="col-md-4 text-muted">
+             <div class="col-4 text-muted">
               <p>Language</p>
             </div>
           </div>
@@ -129,36 +129,36 @@
             <u>Phone Numbers</u>
           </h5>
           <div class="row">
-            <div class="col-md-6 border-bottom border-dark">
+            <div class="col-6 border-bottom border-dark">
               <span><%= @user.primary_phone_type %></span>
             </div>
-            <div class="col-md-6 border-bottom border-dark">
+            <div class="col-6 border-bottom border-dark">
               <span><%= @user.primary_phone %></span>
             </div>
           </div>
           <div class="row">
-             <div class="col-md-6 text-muted">
+             <div class="col-6 text-muted">
               <p>Primary Phone Type</p>
             </div>
-            <div class="col-md-6 text-muted">
+            <div class="col-6 text-muted">
               <p>Primary Phone Number</p>
             </div>
           </div>
 
           <% @user.phones.each do |p| %>
             <div class="row">
-              <div class="col-md-6 border-bottom border-dark">
+              <div class="col-6 border-bottom border-dark">
                 <span><%= p.phone_type %></span>
               </div>
-              <div class="col-md-6 border-bottom border-dark">
+              <div class="col-6 border-bottom border-dark">
                 <span><%= p.phone_number %></span>
               </div>
             </div>
             <div class="row">
-               <div class="col-md-6 text-muted">
+               <div class="col-6 text-muted">
                 <p>Phone Type</p>
               </div>
-              <div class="col-md-6 text-muted">
+              <div class="col-6 text-muted">
                 <p>Phone Number</p>
               </div>
             </div>
@@ -169,69 +169,69 @@
             <u>Addresses</u>
           </h5>
           <div class="row">
-            <div class="col-md-2 border-bottom border-dark">
+            <div class="col-2 border-bottom border-dark">
               <span><%= @user.primary_address_type %></span>
             </div>
-            <div class="col-md-4 border-bottom border-dark">
+            <div class="col-4 border-bottom border-dark">
               <span><%= @user.primary_address_line_1.capitalize %></span>
             </div>
-             <div class="col-md-4 border-bottom border-dark">
+             <div class="col-4 border-bottom border-dark">
               <% if @user.primary_address_line_2 == "" || @user.primary_address_line_2 == nil %>
                   <span>-</span>
               <%else%>
                 <%=  @user.primary_address_line_2.capitalize %>
               <% end %>
             </div>
-            <div class="col-md-2 border-bottom border-dark">
+            <div class="col-2 border-bottom border-dark">
               <span><%= @user.primary_city.capitalize %></span>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-md-2 text-muted">
+            <div class="col-2 text-muted">
               <p>Address Type</p>
             </div>
-             <div class="col-md-4 text-muted">
+             <div class="col-4 text-muted">
               <p>Address Line 1</p>
             </div>
-            <div class="col-md-4 text-muted">
+            <div class="col-4 text-muted">
               <p>Address Line 2</p>
             </div>
-            <div class="col-md-2 text-muted">
+            <div class="col-2 text-muted">
               <p>City</p>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-md-2 border-bottom border-dark">
+            <div class="col-2 border-bottom border-dark">
               <span><%= @user.primary_state.upcase %></span>
             </div>
-            <div class="col-md-4 border-bottom border-dark">
+            <div class="col-4 border-bottom border-dark">
               <span><%= @user.primary_zip %></span>
             </div>
-             <div class="col-md-4 border-bottom border-dark">
+             <div class="col-4 border-bottom border-dark">
               <% if @user.primary_county == "" || @user.primary_county == nil %>
                  <span>-</span>
               <%else%>
                 <span><%=  @user.primary_county.capitalize %></span>
               <% end %>
             </div>
-            <div class="col-md-2 border-bottom border-dark">
+            <div class="col-2 border-bottom border-dark">
               <span><%= @user.primary_country.upcase %></span>
             </div>
           </div>
 
           <div class="row">
-            <div class="col-md-2 text-muted">
+            <div class="col-2 text-muted">
               <p>State</p>
             </div>
-             <div class="col-md-4 text-muted">
+             <div class="col-4 text-muted">
               <p>Zip Code</p>
             </div>
-            <div class="col-md-4 text-muted">
+            <div class="col-4 text-muted">
               <p>County</p>
             </div>
-            <div class="col-md-2 text-muted">
+            <div class="col-2 text-muted">
               <p>Country</p>
             </div>
           </div>
@@ -239,70 +239,70 @@
           <% @user.addresses.each do |t| %>
             <p class="text-secondary"> Additional Addresses</p>
             <div class="row">
-              <div class="col-md-2 border-bottom border-dark">
+              <div class="col-2 border-bottom border-dark">
                 <span><%= t.address_type %></span>
               </div>
-              <div class="col-md-4 border-bottom border-dark">
+              <div class="col-4 border-bottom border-dark">
                 <span><%= t.address_line_1 %></span>
               </div>
-               <div class="col-md-4 border-bottom border-dark">
+               <div class="col-4 border-bottom border-dark">
                 <% if t.address_line_2 == "" || t.address_line_2 == nil %>
                     <span>-</span>
                 <%else%>
                   <span><%=  t.address_line_2 %></span>
                 <% end %>
               </div>
-              <div class="col-md-2 border-bottom border-dark">
+              <div class="col-2 border-bottom border-dark">
                 <span><%= t.city %></span>
               </div>
             </div>
 
 
             <div class="row">
-              <div class="col-md-2 text-muted">
+              <div class="col-2 text-muted">
                 <p>Address Type</p>
               </div>
-               <div class="col-md-4 text-muted">
+               <div class="col-4 text-muted">
                 <p>Address Line 1</p>
               </div>
-              <div class="col-md-4 text-muted">
+              <div class="col-4 text-muted">
                 <p>Address Line 2</p>
               </div>
-              <div class="col-md-2 text-muted">
+              <div class="col-2 text-muted">
                 <p>City</p>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-md-2 border-bottom border-dark">
+              <div class="col-2 border-bottom border-dark">
                 <span><%= t.state %></span>
               </div>
-              <div class="col-md-4 border-bottom border-dark">
+              <div class="col-4 border-bottom border-dark">
                 <span><%= t.zip %></span>
               </div>
-               <div class="col-md-4 border-bottom border-dark">
+               <div class="col-4 border-bottom border-dark">
                 <% if t.county == "" || t.county == nil %>
                     <span>-</span>
                 <%else%>
                   <span><%=  t.county %></span>
                 <% end %>
               </div>
-              <div class="col-md-2 border-bottom border-dark">
+              <div class="col-2 border-bottom border-dark">
                 <span><%= t.country %></span>
               </div>
             </div>
 
             <div class="row">
-              <div class="col-md-2 text-muted ">
+              <div class="col-2 text-muted ">
                 <p>State</p>
               </div>
-               <div class="col-md-4 text-muted">
+               <div class="col-4 text-muted">
                 <p>Zip</p>
               </div>
-              <div class="col-md-4 text-muted">
+              <div class="col-4 text-muted">
                 <p>County</p>
               </div>
-              <div class="col-md-2 text-muted">
+              <div class="col-2 text-muted">
                 <p>Country</p>
               </div>
             </div>
@@ -313,22 +313,22 @@
             <u>User Last Activity On Website </u>
           </h5>
             <div class="row">
-              <div class="col-md-6 border-bottom border-dark">
+              <div class="col-6 border-bottom border-dark">
                 <span><%= @last_login %></span>
               </div>
-              <div class="col-md-6 border-bottom border-dark">
+              <div class="col-6 border-bottom border-dark">
                 <span><%= @user.sign_in_count %></span>
               </div>
             </div>
             <div class="row">
-              <div class="col-md-6 text-muted">
+              <div class="col-6 text-muted">
                 <p>Last Logged In On:</p>
               </div>
-              <div class="col-md-6 text-muted">
+              <div class="col-6 text-muted">
                 <p>Number Of Times Logged In:</p>
               </div>
             </div>
-          <div class="col-md-2 text-left mt-4">
+          <div class="col-2 text-left mt-4">
             <%= link_to 'Edit', edit_user_path(@user) %> |
             <%= link_to 'Back', users_path %>
           </div>
