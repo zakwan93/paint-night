@@ -1,26 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
 
-#cover {
-    height: 100%;
-    width: 100%;
-    text-align: left;
-    display: flex;
-    /*align-items: center;*/
-    position: relative;
-}
-
-/*.main-cover{
-  font-family: 'Amatic SC', cursive;
-}*/
-
-#signup {
-    height: 100%;
-    width: 100%;
-    text-align: left;
-    display: flex;
-    align-items: center;
-    position: relative;
-}
 
 #cover-caption {
     width: 100%;

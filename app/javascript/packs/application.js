@@ -20,6 +20,3 @@ require("@nathanvda/cocoon")
 require('../src/index');
 import "@fortawesome/fontawesome-free/css/all"
 
-$('#phone-number-field').keyup(function(){
-    $(this).val($(this).val().replace(/(\d{3})\-?(\d{3})\-?(\d{4})/,'$1-$2-$3'))
-});

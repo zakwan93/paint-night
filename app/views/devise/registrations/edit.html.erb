@@ -11,8 +11,8 @@
 
                 <div class="col-md-2">
                   <div class="form-group">
-                    <%= form.label :title , class:"required-field"%>
-                    <%= form.select :title, ["Mr", "Mrs", "Miss", "Jr", "Sr"], {:prompt => 'Select Title'}, class: "form-select", required: true %>
+                    <%= form.label :title %>
+                    <%= form.select :title, ["Mr", "Mrs", "Miss", "Jr", "Sr"], {:prompt => 'Select Title'}, class: "form-select" %>
                   </div>
                 </div>
                 <div class="col-md-4">
@@ -72,12 +72,6 @@
                     <%= form.select :language, ["English","Spanish","Hindi", "Chinese", "French", "others"], {:prompt => 'Select Your Language'}, {class: "form-select"}%>
                   </div>
                 </div>
-                <!-- <div class="col-md-12">
-                  <div class="form-group">
-                    <%= form.label :role %>
-                    <%= collection_select :user, :role_id, Role.all, :id, :name, { prompt: true },{class: "form-control"}%>
-                  </div>
-                </div> -->
                 <div class="col-md-6">
                   <div class="form-group">
                     <%= form.label :primary_phone_type, "Phone Type", class:"required-field" %>

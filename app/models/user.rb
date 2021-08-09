@@ -4,14 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   validates :email, presence: true, format: Devise.email_regexp
-   # validates :primary_phone,
-   #                    :presence => {:message => 'can not be blank'},
-   #                   # :numericality => true, 
-   #                   :length => { :minimum => 12, :maximum => 15 }
   validates :primary_phone,
             :length => { :minimum => 12, :maximum => 15 },
             format: { with: /\d{3}-\d{3}-\d{4}/, message: "is not valid" }
-
   validates_presence_of :first_name,
                         :last_name,
                         :dob,
@@ -26,10 +21,9 @@ class User < ApplicationRecord
   validates :first_name, :last_name, length: { minimum: 2 }
   validates :middle_name, length: { is: 1 }, allow_blank: true
   validates :primary_state, length: { is: 2 }
-  validates :primary_zip, :numericality => true
-  validates_format_of :primary_zip,
-                    :with => %r{\d{5}(-\d{4})?},
-                    :message => "should be 12345 or 12345-1234"
+  validates :primary_zip,
+             :length => { :minimum => 5 , :maximum => 10},
+             format: { with: %r{\d{5}(-\d{4})?}, message: "should be 12345 or 12345-1234"}
   
   belongs_to :role, optional: true
   has_many :phones, dependent: :destroy
@@ -56,13 +50,13 @@ class User < ApplicationRecord
     "#{self.first_name} #{self.last_name}"
   end
 
-ransacker :full_name do |parent|
-  Arel::Nodes::InfixOperation.new('||',
+  ransacker :full_name do |parent|
     Arel::Nodes::InfixOperation.new('||',
-      parent.table[:first_name], Arel::Nodes.build_quoted(' ')
-    ),
-    parent.table[:last_name]
-  )
-end
+      Arel::Nodes::InfixOperation.new('||',
+        parent.table[:first_name], Arel::Nodes.build_quoted(' ')
+      ),
+      parent.table[:last_name]
+    )
+  end
 
 end

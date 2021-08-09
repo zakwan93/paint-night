@@ -16,16 +16,13 @@ class UsersController < ApplicationController
     if @user.current_sign_in_at
       @last_login = @user.current_sign_in_at.to_formatted_s(:short)
     else
-    @last_login = 'never'
-  end
+      @last_login = 'never'
+    end
   end
 
   # GET /users/new
   def new
     @user = User.new
-    # 1.times {@user.phones.build}
-    # @user.phones.build
-    # @user.addresses.build
     authorize! :new, @user
   end
 
@@ -36,15 +33,9 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    # puts params
     authorize! :new, @user
     phone_index = params[:user][:primary_phone]
-    # puts phone_index
-    # puts params[:user][:phones_attributes]
-    # params[:user][:phones_attributes][phone_index][:primary] = true 
-    # if params[:user][:phones_attributes][phone_index] 
     @user = User.new(user_params)
-
     if @user.save
       redirect_to @user, notice: 'User was successfully created.'
     else
@@ -54,22 +45,18 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-      # phone_index = params[:user][:primary_phone]
-      # params[:user][:phones_attributes][phone_index][:primary] = true 
-      # if params[:user][:phones_attributes][phone_index] 
+    # Authorizing Admin only to this page
     authorize! :new, @user
     if user_params[:password].blank?
       user_params.delete(:password)
       user_params.delete(:password_confirmation)
     end
-
     successfully_updated = if needs_password?(@user, user_params)
                             puts params
                              @user.update(user_params)
                            else
                              @user.update_without_password(user_params)
                            end
-
     if successfully_updated
       redirect_to @user, notice: 'User was successfully updated.'
     else
@@ -86,7 +73,6 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-
     def needs_password?(_user, params)
       params[:password].present?
     end
