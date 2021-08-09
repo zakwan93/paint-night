@@ -6,17 +6,17 @@
 
   <%= search_form_for @ransack_users, as: :users_search, url: root_path, method: :get do |f| %>
       <div class="input-group">
-        <div class="col-md-9 col-xs-6 m-2">
+        <div class="col-md-9 col-s-5 m-2">
           <%= f.search_field :full_name_cont, :placeholder => 'Search by Name', class: "form-control border rounded-pill" %>
         </div>
-        <div class="col-md-1 col-xs-2 d-flex justify-content-center align-items-center">
+        <div class="col-md-1 col-s-2 d-flex justify-content-center align-items-center">
           <span class="input-group-append ">
             <button class="btn btn-dark btn-md " type="submit">
               <span aria-hidden="true" class="fa fa-search"></span>
             </button>
           </span>
         </div>
-        <div class="col-md-1 col-xs-4 m-2">
+        <div class="col-md-1 col-s-3 m-2">
           <%= link_to 'Refresh', root_path, class:"btn btn-dark text-light" %>
         </div>
       </div>
