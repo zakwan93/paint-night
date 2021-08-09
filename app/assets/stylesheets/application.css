@@ -1,5 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
+
+body, p, ol, ul, td, h1,h2,h3,h4,h5,a, input[type=submit],label,span {
+  /*font-family: verdana, arial, helvetica, sans-serif;*/
+   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
 
 #cover-caption {
     width: 100%;
@@ -7,10 +16,19 @@
     z-index: 1;
 }
 
+.main-background{
+   position: relative;
+  text-align: center;
+  color: white;
+  height: 100vh;
+  min-width: 100vw;
+}
 
-body, p, ol, ul, td, h1,h2,h3,h4,h5,a, input[type=submit],label,span {
-  /*font-family: verdana, arial, helvetica, sans-serif;*/
-   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 pre {
@@ -21,6 +39,10 @@ pre {
 
 a {
   color: #000;
+}
+
+a:link {
+  color: #666;
 }
 
 a:visited {
